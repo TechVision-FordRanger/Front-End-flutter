@@ -1,0 +1,55 @@
+name: ford_ranger
+description: A new Flutter project.
+
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.1 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/logo_ford.png
+    - assets/images/drones 1.png
+    - assets/images/mapa exemplo.png
+    - assets/images/perfil.png
+    - assets/images/ranger.png
+    - assets/images/Ranger.png
+    - assets/images/Renavam.png
+
+
+
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter/Inter-Black.ttf
+        - asset: assets/fonts/Inter/Inter-Bold.ttf
+        - asset: assets/fonts/Inter/Inter-ExtraBold.ttf
+        - asset: assets/fonts/Inter/Inter-ExtraLight.ttf
+        - asset: assets/fonts/Inter/Inter-Light.ttf
+        - asset: assets/fonts/Inter/Inter-Medium.ttf
+        - asset: assets/fonts/Inter/Inter-Regular.ttf
+        - asset: assets/fonts/Inter/Inter-SemiBold.ttf
+        - asset: assets/fonts/Inter/Inter-Thin.ttf
+          weight: 700
+
+    - family: PT Sans Caption
+      fonts:
+        - asset: assets/fonts/PT_Sans_Caption/PTSansCaption-Bold.ttf
+        - asset: assets/fonts/PT_Sans_Caption/PTSansCaption-Regular.ttf
+          weight: 700
