@@ -32,7 +32,7 @@ flutter:
     # - assets/images/Renavam.png
     - assets/images/logo_ford_azul_escuro.png
     - assets/images/ranger_live_kife.png
-    - images/back_button.png
+    - assets/images/back_button.png
 
 
 
