@@ -23,13 +23,17 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/logo_ford.png
-    - assets/images/drones 1.png
-    - assets/images/mapa exemplo.png
-    - assets/images/perfil.png
-    - assets/images/ranger.png
-    - assets/images/Ranger.png
-    - assets/images/Renavam.png
+    # - assets/images/logo_ford.png
+    # - assets/images/drones 1.png
+    # - assets/images/mapa exemplo.png
+    # - assets/images/perfil.png
+    # - assets/images/ranger.png
+    # - assets/images/Ranger.png
+    # - assets/images/Renavam.png
+    - assets/images/logo_ford_azul_escuro.png
+    - assets/images/ranger_live_kife.png
+    - images/back_button.png
+
 
 
 
