@@ -32,6 +32,8 @@ class CustomInputSenha extends StatelessWidget {
         suffixIcon: suffixIcon != null
             ? IconButton(
                 icon: suffixIcon!,
+                color: Colors.white,
+                disabledColor: Colors.white,
                 onPressed: onTapIcon, // Quando o ícone é pressionado
               )
             : null,

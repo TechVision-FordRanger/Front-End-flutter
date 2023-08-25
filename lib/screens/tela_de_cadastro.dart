@@ -8,6 +8,9 @@ import '../widgets/ranger_live_kife_image.dart';
 import '../widgets/voltar_button.dart';
 
 class CadastroScreen extends StatelessWidget {
+
+  static String routeName = '/new-user';
+
   // Controladores para os campos de entrada
   final TextEditingController nomeController = TextEditingController();
   final TextEditingController sobrenomeController = TextEditingController();

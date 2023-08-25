@@ -17,9 +17,11 @@ class ProximoButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 50.0, vertical: 16.0)), // Maior padding
+        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+            horizontal: 50.0, vertical: 16.0)), // Maior padding
       ),
-      child: Text('Próximo', style: TextStyle(fontSize: 18.0)), // Maior tamanho de fonte
+      child: Text('Próximo',
+          style: TextStyle(fontSize: 18.0)), // Maior tamanho de fonte
     );
   }
 }
