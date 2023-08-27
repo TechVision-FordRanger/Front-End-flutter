@@ -62,14 +62,35 @@ class _LoginSreenState extends State<LoginScreen> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Lógica para processar o login
+                // Validação do email e senha
+                String email = _loginController.text;
+                String password = _passwordController.text;
+
+                if (email == "ford@ford.com.br" && password == "fordford") {
+                  // Lógica para processar o login bem-sucedido
+                  // Navegar para a próxima tela ou realizar outras ações
+                } else {
+                  // Exibir uma mensagem de erro
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: Text("Erro de Autenticação"),
+                        content:
+                            Text("Email ou senha inválidos. Tente novamente."),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context);
+                            },
+                            child: Text("OK"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
               },
-              style: ElevatedButton.styleFrom(
-                primary: Colors.blue, // Cor de fundo do botão
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
-                ),
-              ),
               child: Container(
                 width: 340,
                 height: 50,
