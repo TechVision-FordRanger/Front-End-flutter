@@ -5,14 +5,14 @@ import 'package:ford_ranger/widgets/custom_input_cadastro.dart';
 import 'package:ford_ranger/widgets/logo_ford.dart';
 import 'package:ford_ranger/widgets/custom_input_senha.dart';
 
-class TelaDeLogin extends StatefulWidget {
+class LoginScreen extends StatefulWidget {
   @override
-  static const String routeName = '/tela-de-login';
+  static const String routeName = '/login-screen';
 
-  _TelaDeLoginState createState() => _TelaDeLoginState();
+  _LoginSreenState createState() => _LoginSreenState();
 }
 
-class _TelaDeLoginState extends State<TelaDeLogin> {
+class _LoginSreenState extends State<LoginScreen> {
   bool _passwordVisible = false;
   TextEditingController _loginController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
