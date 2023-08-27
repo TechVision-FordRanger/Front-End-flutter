@@ -10,6 +10,8 @@ class CustomBackgroundColor extends StatelessWidget {
     return Container(
       color: const Color.fromARGB(255, 0, 2, 116),
       child: child,
+      width: double.infinity,
+      height: double.infinity,
     );
   }
 }
