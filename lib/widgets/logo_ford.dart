@@ -4,7 +4,7 @@ class LogoFord extends StatelessWidget {
   final double width;
   final double height;
 
-  LogoFord({this.width = 100.0, this.height = 100.0});
+  const LogoFord({super.key, this.width = 100.0, this.height = 100.0});
 
   @override
   Widget build(BuildContext context) {

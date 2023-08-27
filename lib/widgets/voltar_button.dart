@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class VoltarButton extends StatelessWidget {
   final Function onPressed;
 
-  VoltarButton({required this.onPressed});
+  const VoltarButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class VoltarButton extends StatelessWidget {
       child: Container(
         width: 60.0,  // Ajuste conforme necessário
         height: 60.0, // Ajuste conforme necessário
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/back_button.png'),
             fit: BoxFit.contain, // Isso garantirá que a imagem se ajuste ao tamanho do container.

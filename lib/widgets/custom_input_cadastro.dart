@@ -8,13 +8,14 @@ class CustomInputCadastro extends StatelessWidget {
   final bool obscureText;
   final Function()? onTapIcon; // Função adicional para o ícone
 
-  CustomInputCadastro({
+  const CustomInputCadastro({
+    super.key,
     required this.controller,
     required this.hintText,
     this.keyboardType = TextInputType.text,
     this.prefixIcon,
     this.obscureText = false,
-    this.onTapIcon, // Inicializando o parâmetro
+    this.onTapIcon,
   });
 
   @override
@@ -35,10 +36,10 @@ class CustomInputCadastro extends StatelessWidget {
               )
             : null,
         filled: true,
-        fillColor: Color(0xFF051A35),
-        hintStyle: TextStyle(color: Colors.white),
+        fillColor: const Color(0xFF051A35),
+        hintStyle: const TextStyle(color: Colors.white),
       ),
-      style: TextStyle(color: Colors.white),
+      style: const TextStyle(color: Colors.white),
       obscureText: obscureText,
     );
   }

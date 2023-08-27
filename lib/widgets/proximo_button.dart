@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ProximoButton extends StatelessWidget {
   final Function onPressed;
 
-  ProximoButton({required this.onPressed});
+  const ProximoButton({super.key, required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -17,9 +17,9 @@ class ProximoButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(horizontal: 50.0, vertical: 16.0)), // Maior padding
+        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 50.0, vertical: 16.0)), // Maior padding
       ),
-      child: Text('Próximo', style: TextStyle(fontSize: 18.0)), // Maior tamanho de fonte
+      child: const Text('Próximo', style: TextStyle(fontSize: 18.0)), // Maior tamanho de fonte
     );
   }
 }

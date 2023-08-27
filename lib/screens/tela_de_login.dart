@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_cadastro.dart';
@@ -102,6 +103,10 @@ class _TelaDeLoginState extends State<TelaDeLogin> {
                     children: [
                       TextSpan(
                         text: "Faça seu cadastro",
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () {
+                            // colocar caminho tela cadastro
+                          },
                         style: TextStyle(
                           fontWeight: FontWeight.bold,
                           color: Colors.white,

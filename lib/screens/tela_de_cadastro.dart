@@ -16,6 +16,8 @@ class CadastroScreen extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController telefoneController = TextEditingController();
 
+  CadastroScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -26,11 +28,11 @@ class CadastroScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: LogoFord(width: 200, height: 200),
                   ),
-                  RangerLiveKifeImage(), // A imagem não terá padding.
+                  const RangerLiveKifeImage(), // A imagem não terá padding.
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     
@@ -40,16 +42,16 @@ class CadastroScreen extends StatelessWidget {
                         CustomInputCadastro(
                           controller: nomeController,
                           hintText: 'Nome e Sobrenome',
-                          prefixIcon: Icon(Icons.person,
+                          prefixIcon: const Icon(Icons.person,
                               color: Colors.white), // Ícone de perfil
                         ),
-                        SizedBox(height: 30.0),
+                        const SizedBox(height: 30.0),
                         CustomInputCadastro(
                           controller: dataAniversarioController,
                           hintText: 'Data de Nascimento',
                           keyboardType: TextInputType.datetime,
                           prefixIcon:
-                              Icon(Icons.calendar_today, color: Colors.white),
+                              const Icon(Icons.calendar_today, color: Colors.white),
                           onTapIcon: () async {
                             DateTime? selectedDate = await showDatePicker(
                               context: context,
@@ -64,23 +66,23 @@ class CadastroScreen extends StatelessWidget {
                             }
                           },
                         ),
-                        SizedBox(height: 30.0),
+                        const SizedBox(height: 30.0),
                         CustomInputCadastro(
                           controller: emailController,
                           hintText: 'E-mail',
                           keyboardType: TextInputType.emailAddress,
-                          prefixIcon: Icon(Icons.mail,
+                          prefixIcon: const Icon(Icons.mail,
                               color: Colors.white), // Ícone de carta (e-mail)
                         ),
-                        SizedBox(height: 30.0),
+                        const SizedBox(height: 30.0),
                         CustomInputCadastro(
                           controller: telefoneController,
                           hintText: 'Número de Telefone',
                           keyboardType: TextInputType.phone,
-                          prefixIcon: Icon(Icons.phone,
+                          prefixIcon: const Icon(Icons.phone,
                               color: Colors.white), // Ícone de telefone
                         ),
-                        SizedBox(height: 20.0),
+                        const SizedBox(height: 20.0),
                       ],
                     ),
                   ),
