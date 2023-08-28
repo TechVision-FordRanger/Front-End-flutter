@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:ford_ranger/widgets/custom_input_cadastro.dart';
+import 'package:ford_ranger/widgets/custom_input_registration.dart';
 
 import '../widgets/custom_background_color.dart';
 import '../widgets/logo_ford.dart';
-import '../widgets/proximo_button.dart';
+import '../widgets/next_button.dart';
 import '../widgets/ranger_live_kife_image.dart';
-import '../widgets/voltar_button.dart';
+import '../widgets/back_button.dart';
 
-class CadastroScreen extends StatelessWidget {
+class Registration extends StatelessWidget {
 
   static String routeName = '/new-user';
 
@@ -40,14 +40,14 @@ class CadastroScreen extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: nomeController,
                           hintText: 'Nome e Sobrenome',
                           prefixIcon: Icon(Icons.person,
                               color: Colors.white), // Ícone de perfil
                         ),
                         SizedBox(height: 30.0),
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: dataAniversarioController,
                           hintText: 'Data de Nascimento',
                           keyboardType: TextInputType.datetime,
@@ -68,7 +68,7 @@ class CadastroScreen extends StatelessWidget {
                           },
                         ),
                         SizedBox(height: 30.0),
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: emailController,
                           hintText: 'E-mail',
                           keyboardType: TextInputType.emailAddress,
@@ -76,7 +76,7 @@ class CadastroScreen extends StatelessWidget {
                               color: Colors.white), // Ícone de carta (e-mail)
                         ),
                         SizedBox(height: 30.0),
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: telefoneController,
                           hintText: 'Número de Telefone',
                           keyboardType: TextInputType.phone,
@@ -100,7 +100,7 @@ class CadastroScreen extends StatelessWidget {
                     VoltarButton(onPressed: () {
                       // Adicione a função para voltar aqui
                     }),
-                    ProximoButton(onPressed: () {
+                    NextButton(onPressed: () {
                       // Adicione a função para ir para a próxima tela aqui
                     }),
                   ],

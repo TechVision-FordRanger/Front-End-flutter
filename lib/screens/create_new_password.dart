@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
-import 'package:ford_ranger/widgets/custom_input_senha.dart';
+import 'package:ford_ranger/widgets/custom_input_password.dart';
 
 class CreateNewPassword extends StatefulWidget {
   static const String routeName = '/create-new-password';
@@ -65,7 +65,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   child: SizedBox(
                     width: 340,
                     height: 50,
-                    child: CustomInputSenha(
+                    child: CustomInputPassword(
                       controller: passwordController,
                       hintText: 'Senha',
                       suffixIcon: Icon(Icons.visibility_off),
@@ -77,7 +77,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   child: SizedBox(
                     width: 340,
                     height: 50,
-                    child: CustomInputSenha(
+                    child: CustomInputPassword(
                       controller: confirmPasswordController,
                       hintText: 'Confirme sua senha',
                       suffixIcon: Icon(Icons.visibility_off),

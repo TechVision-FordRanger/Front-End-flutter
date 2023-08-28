@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomInputCadastro extends StatelessWidget {
+class CustomInputRegistration extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final TextInputType keyboardType;
@@ -8,7 +8,7 @@ class CustomInputCadastro extends StatelessWidget {
   final bool obscureText;
   final Function()? onTapIcon; // Função adicional para o ícone
 
-  CustomInputCadastro({
+  CustomInputRegistration({
     required this.controller,
     required this.hintText,
     this.keyboardType = TextInputType.text,

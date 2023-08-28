@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CustomInputSenha extends StatelessWidget {
+class CustomInputPassword extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final TextInputType keyboardType;
@@ -8,7 +8,7 @@ class CustomInputSenha extends StatelessWidget {
   final bool obscureText;
   final Function()? onTapIcon; // Função adicional para o ícone
 
-  const CustomInputSenha({
+  const CustomInputPassword({
     super.key,
     required this.controller,
     required this.hintText,
