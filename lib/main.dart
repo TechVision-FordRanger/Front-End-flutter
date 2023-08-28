@@ -3,7 +3,6 @@ import 'package:ford_ranger/screens-antigas/loading_screen.dart';
 import 'package:ford_ranger/screens-antigas/welcome_screen.dart';
 import 'package:ford_ranger/screens/create_new_password.dart';
 import 'package:ford_ranger/screens/home_page.dart';
-import 'package:ford_ranger/screens/tela_de_cadastro.dart';
 import 'package:ford_ranger/screens/registration.dart';
 
 
@@ -28,7 +27,7 @@ class MyApp extends StatelessWidget {
         LoadingScreen.routeName: (context) => LoadingScreen(),
         WelcomeScreen.routeName: (context) => WelcomeScreen(),
         CreateNewPassword.routeName: (context) => CreateNewPassword(),
-        CadastroScreen.routeName: (context) => CadastroScreen(),
+        Registration.routeName: (context) => Registration(),
         HomePage.routeName: (context) => HomePage(),
       },
     );
