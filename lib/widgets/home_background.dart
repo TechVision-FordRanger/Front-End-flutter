@@ -11,7 +11,7 @@ class HomeBackground extends StatelessWidget {
       decoration: BoxDecoration(
         color: Color.fromARGB(255, 0, 2, 116), // Cor de fundo
         image: DecorationImage(
-          image: AssetImage('assets/path_to_your_image.png'), // Caminho para sua imagem
+          image: AssetImage('assets/images/bg-home.png'), // Caminho para sua imagem
           fit: BoxFit.cover, // Isso fará com que a imagem cubra todo o container
         ),
       ),

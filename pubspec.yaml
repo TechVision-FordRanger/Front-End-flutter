@@ -36,6 +36,8 @@ flutter:
     - assets/images/ranger_live_kife.png
     - assets/images/back_button.png
     - assets/images/padlock1.png
+    - assets/images/bg-home.png
+    - assets/images/ranger-sem-fundo.png
 
 
 
