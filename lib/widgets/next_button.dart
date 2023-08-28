@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class ProximoButton extends StatelessWidget {
+class NextButton extends StatelessWidget {
   final Function onPressed;
 
-  ProximoButton({required this.onPressed});
+  NextButton({required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
