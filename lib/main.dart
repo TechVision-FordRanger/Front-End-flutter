@@ -30,8 +30,6 @@ class MyApp extends StatelessWidget {
         CreateNewPassword.routeName: (context) => CreateNewPassword(),
         CadastroScreen.routeName: (context) => CadastroScreen(),
         HomePage.routeName: (context) => HomePage(),
-        Registration.routeName: (context) => Registration(),
-
       },
     );
   }
