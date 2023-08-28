@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class VoltarButton extends StatelessWidget {
+class FordBackButton extends StatelessWidget {
   final Function onPressed;
 
-  VoltarButton({required this.onPressed});
+  FordBackButton({required this.onPressed});
 
   @override
   Widget build(BuildContext context) {
