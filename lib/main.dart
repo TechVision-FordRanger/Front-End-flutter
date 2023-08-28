@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
         LoadingScreen.routeName: (context) => LoadingScreen(),
         WelcomeScreen.routeName: (context) => WelcomeScreen(),
         CreateNewPassword.routeName: (context) => CreateNewPassword(),
-        Registration.routeName: (context) => Registration(),
+        CadastroScreen.routeName: (context) => CadastroScreen(),
         HomePage.routeName: (context) => HomePage(),
       },
     );
