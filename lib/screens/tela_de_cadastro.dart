@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:ford_ranger/widgets/custom_input_cadastro.dart';
-
+import 'package:ford_ranger/widgets/custom_input_registration.dart';
+import 'package:ford_ranger/widgets/next_button.dart';
 import '../widgets/custom_background_color.dart';
 import '../widgets/logo_ford.dart';
-import '../widgets/proximo_button.dart';
 import '../widgets/ranger_live_kife_image.dart';
-import '../widgets/voltar_button.dart';
 
 class CadastroScreen extends StatelessWidget {
-
   static String routeName = '/new-user';
 
   // Controladores para os campos de entrada
@@ -38,23 +35,22 @@ class CadastroScreen extends StatelessWidget {
                   const RangerLiveKifeImage(), // A imagem não terá padding.
                   Padding(
                     padding: const EdgeInsets.all(16.0),
-                    
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: nomeController,
                           hintText: 'Nome e Sobrenome',
                           prefixIcon: const Icon(Icons.person,
                               color: Colors.white), // Ícone de perfil
                         ),
                         const SizedBox(height: 30.0),
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: dataAniversarioController,
                           hintText: 'Data de Nascimento',
                           keyboardType: TextInputType.datetime,
-                          prefixIcon:
-                              const Icon(Icons.calendar_today, color: Colors.white),
+                          prefixIcon: const Icon(Icons.calendar_today,
+                              color: Colors.white),
                           onTapIcon: () async {
                             DateTime? selectedDate = await showDatePicker(
                               context: context,
@@ -70,7 +66,7 @@ class CadastroScreen extends StatelessWidget {
                           },
                         ),
                         const SizedBox(height: 30.0),
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: emailController,
                           hintText: 'E-mail',
                           keyboardType: TextInputType.emailAddress,
@@ -78,7 +74,7 @@ class CadastroScreen extends StatelessWidget {
                               color: Colors.white), // Ícone de carta (e-mail)
                         ),
                         const SizedBox(height: 30.0),
-                        CustomInputCadastro(
+                        CustomInputRegistration(
                           controller: telefoneController,
                           hintText: 'Número de Telefone',
                           keyboardType: TextInputType.phone,
@@ -99,10 +95,10 @@ class CadastroScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    VoltarButton(onPressed: () {
+                    BackButton(onPressed: () {
                       // Adicione a função para voltar aqui
                     }),
-                    ProximoButton(onPressed: () {
+                    NextButton(onPressed: () {
                       // Adicione a função para ir para a próxima tela aqui
                     }),
                   ],

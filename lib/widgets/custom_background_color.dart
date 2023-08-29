@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomBackgroundColor extends StatelessWidget {
-  final Widget? child; // Para adicionar outros widgets dentro do CustomBackground, se necessário
+  final Widget?
+      child; // Para adicionar outros widgets dentro do CustomBackground, se necessário
 
   const CustomBackgroundColor({super.key, this.child});
 

@@ -12,6 +12,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.2
+  ionicons: ^0.2.2
+  intl: ^0.18.1
 
 dev_dependencies:
   flutter_test:
@@ -25,7 +27,7 @@ flutter:
   assets:
     - assets/images/logo_ford.png
     - assets/images/drones 1.png
-    - assets/images/mapa exemplo.png
+    - assets/images/map.png
     - assets/images/perfil.png
     - assets/images/ranger.png
     - assets/images/Ranger.png
@@ -34,6 +36,14 @@ flutter:
     - assets/images/ranger_live_kife.png
     - assets/images/back_button.png
     - assets/images/padlock1.png
+    - assets/images/bg-home.png
+    - assets/images/ranger-sem-fundo.png
+    - assets/images/police.png
+    - assets/images/radio-icon.png
+    - assets/images/alert.png
+    - assets/images/cargo-container.png
+    - assets/images/info-drone.png
+    - assets/images/dots.png
 
 
 

@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
-import 'package:ford_ranger/widgets/custom_input_cadastro.dart';
+import 'package:ford_ranger/widgets/custom_input_password.dart';
+import 'package:ford_ranger/widgets/custom_input_registration.dart';
 import 'package:ford_ranger/widgets/logo_ford.dart';
-import 'package:ford_ranger/widgets/custom_input_senha.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -51,7 +51,7 @@ class _LoginSreenState extends State<LoginScreen> {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.only(bottom: 25, left: 20, right: 20),
-                child: CustomInputCadastro(
+                child: CustomInputRegistration(
                   controller: _loginController,
                   hintText: "Login",
                 ),
@@ -59,7 +59,7 @@ class _LoginSreenState extends State<LoginScreen> {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
-                child: CustomInputSenha(
+                child: CustomInputPassword(
                   controller: _passwordController,
                   hintText: "Senha",
                   obscureText: !_passwordVisible,
