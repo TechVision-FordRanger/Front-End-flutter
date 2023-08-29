@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/create_new_password.dart';
-import 'package:ford_ranger/screens/tela_de_cadastro.dart';
+import 'package:ford_ranger/screens/registration.dart';
 import 'login_screen.dart';
 import 'register_one_screen.dart';
 
@@ -32,7 +32,7 @@ class WelcomeScreen extends StatelessWidget {
             TextButton(
               onPressed: () {
                 Navigator.pushNamed(context,
-                    CadastroScreen.routeName);
+                    Registration.routeName);
               },
               child: Text('Cadastre sua Ranger'),
             ),

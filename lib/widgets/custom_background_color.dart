@@ -8,7 +8,7 @@ class CustomBackgroundColor extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 0, 2, 116),
+      color: Color(0xFF000274),
       child: child,
       width: double.infinity,
       height: double.infinity,
