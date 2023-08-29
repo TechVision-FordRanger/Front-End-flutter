@@ -28,14 +28,18 @@ class _LoginSreenState extends State<LoginScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const LogoFord(width: 328, height: 125),
+              Padding(
+                padding: const EdgeInsets.only(top: 92, left: 31, right: 31),
+                child: const LogoFord(width: 328, height: 125),
+              ),
               const SizedBox(height: 20),
               Container(
                 width: 328,
                 height: 72,
-                margin: const EdgeInsets.fromLTRB(35, 259, 0, 0),
+                margin: const EdgeInsets.fromLTRB(30, 100, 0, 0),
                 child: const Text(
                   "Bem-vindo de volta!",
+                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xFFFFFFFF),
                     fontWeight: FontWeight.w500,
@@ -45,72 +49,81 @@ class _LoginSreenState extends State<LoginScreen> {
                 ),
               ),
               const SizedBox(height: 10),
-              CustomInputCadastro(
-                controller: _loginController,
-                hintText: "Login",
-              ),
-              const SizedBox(height: 20),
-              CustomInputSenha(
-                controller: _passwordController,
-                hintText: "Senha",
-                obscureText: !_passwordVisible,
-                suffixIcon: Icon(
-                  _passwordVisible ? Icons.visibility_off : Icons.visibility,
+              Padding(
+                padding: const EdgeInsets.only(bottom: 25, left: 20, right: 20),
+                child: CustomInputCadastro(
+                  controller: _loginController,
+                  hintText: "Login",
                 ),
-                onTapIcon: () {
-                  setState(() {
-                    _passwordVisible = !_passwordVisible;
-                  });
-                },
               ),
               const SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  // Validação do email e senha
-                  String email = _loginController.text;
-                  String password = _passwordController.text;
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+                child: CustomInputSenha(
+                  controller: _passwordController,
+                  hintText: "Senha",
+                  obscureText: !_passwordVisible,
+                  suffixIcon: Icon(
+                    _passwordVisible ? Icons.visibility_off : Icons.visibility,
+                  ),
+                  onTapIcon: () {
+                    setState(() {
+                      _passwordVisible = !_passwordVisible;
+                    });
+                  },
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+                child: ElevatedButton(
+                  onPressed: () {
+                    // Validação do email e senha
+                    String email = _loginController.text;
+                    String password = _passwordController.text;
 
-                  if (email == "ford@ford.com.br" && password == "fordford") {
-                    // Lógica para processar o login bem-sucedido
-                    // Navegar para a próxima tela ou realizar outras ações
-                  } else {
-                    // Exibir uma mensagem de erro
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return AlertDialog(
-                          title: const Text("Erro de Autenticação"),
-                          content: const Text(
-                              "Email ou senha inválidos. Tente novamente."),
-                          actions: [
-                            TextButton(
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                              child: const Text("OK"),
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  }
-                },
-                style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateProperty.all<Color>(Colors.white),
-                  foregroundColor:
-                      MaterialStateProperty.all<Color>(Colors.black),
-                ),
-                child: Container(
-                  width: 340,
-                  height: 50,
-                  alignment: Alignment.center,
-                  child: const Text(
-                    "Login",
-                    style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16, // Tamanho da fonte do botão
+                    if (email == "ford@ford.com.br" && password == "fordford") {
+                      // Lógica para processar o login bem-sucedido
+                      // Navegar para a próxima tela ou realizar outras ações
+                    } else {
+                      // Exibir uma mensagem de erro
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: const Text("Erro de Autenticação"),
+                            content: const Text(
+                                "Email ou senha inválidos. Tente novamente."),
+                            actions: [
+                              TextButton(
+                                onPressed: () {
+                                  Navigator.pop(context);
+                                },
+                                child: const Text("OK"),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    }
+                  },
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all<Color>(Colors.white),
+                    foregroundColor:
+                        MaterialStateProperty.all<Color>(Colors.black),
+                  ),
+                  child: Container(
+                    width: 340,
+                    height: 50,
+                    alignment: Alignment.center,
+                    child: const Text(
+                      "Login",
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16, // Tamanho da fonte do botão
+                      ),
                     ),
                   ),
                 ),
