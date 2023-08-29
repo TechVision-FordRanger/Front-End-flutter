@@ -17,17 +17,11 @@ class ProximoButton extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
         ),
-<<<<<<< HEAD
-        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(horizontal: 50.0, vertical: 16.0)), // Maior padding
-      ),
-      child: const Text('Próximo', style: TextStyle(fontSize: 18.0)), // Maior tamanho de fonte
-=======
-        padding: MaterialStateProperty.all(EdgeInsets.symmetric(
+        padding: MaterialStateProperty.all(const EdgeInsets.symmetric(
             horizontal: 50.0, vertical: 16.0)), // Maior padding
       ),
-      child: Text('Próximo',
+      child: const Text('Próximo',
           style: TextStyle(fontSize: 18.0)), // Maior tamanho de fonte
->>>>>>> 7f926cb307c878adeb388af821e8e5b29d459f7f
     );
   }
 }
