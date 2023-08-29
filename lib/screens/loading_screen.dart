@@ -27,7 +27,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset('assets/images/logo_ford.png'),
-            SizedBox(height: 16.0),
+            SizedBox(height: 16.0), // Espaçamento
+            Image.asset('assets/images/ranger_picture.png'), // Nova imagem
+            SizedBox(height: 16.0), // Espaçamento
             CircularProgressIndicator.adaptive(),
           ],
         ),
