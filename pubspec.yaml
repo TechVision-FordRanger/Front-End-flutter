@@ -41,6 +41,9 @@ flutter:
     - assets/images/police.png
     - assets/images/radio-icon.png
     - assets/images/alert.png
+    - assets/images/cargo-container.png
+    - assets/images/info-drone.png
+    - assets/images/dots.png
 
 
 
