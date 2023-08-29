@@ -18,7 +18,8 @@ class CustomInputRegistration extends StatelessWidget {
     this.prefixIcon,
     this.obscureText = false,
     this.onTapIcon,
-  });
+    this.validator,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -38,10 +39,11 @@ class CustomInputRegistration extends StatelessWidget {
               )
             : null,
         filled: true,
-        fillColor: const Color(0xFF051A35),
-        hintStyle: const TextStyle(color: Colors.white),
+        fillColor: Color(0xFF051A35),
+        hintStyle: TextStyle(color: Colors.white),
+        errorStyle: TextStyle(color: Colors.red, fontSize: 12.0),
       ),
-      style: const TextStyle(color: Colors.white),
+      style: TextStyle(color: Colors.white),
       obscureText: obscureText,
     );
   }
