@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/home.dart';
 import 'package:ionicons/ionicons.dart';
 
+import 'better_job.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
   static String routeName = '/home';
@@ -23,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     return IndexedStack(
       index: pageIndex,
-      children: const [Home()],
+      children: [Home(), BetterJob()],
     );
   }
 
