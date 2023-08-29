@@ -26,7 +26,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo_ford.png'),
+            Image.asset('assets/images/logo_ford_azul_escuro.png'),
             SizedBox(height: 16.0), // Espaçamento
             Image.asset('assets/images/ranger_picture.png'), // Nova imagem
             SizedBox(height: 16.0), // Espaçamento
