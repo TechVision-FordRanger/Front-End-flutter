@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class LoadingScreen extends StatefulWidget {
-  static const String routeName = '/loading';
+  static const String routeName = '/LoadingScreen';
 
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
