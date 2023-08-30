@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ford_ranger/screens-antigas/welcome_screen.dart';
+import 'package:ford_ranger/screens/loading_screen.dart';
+import 'package:ford_ranger/screens/welcome_screen.dart';
 import 'package:ford_ranger/screens/create_new_password.dart';
 import 'package:ford_ranger/screens/home_page.dart';
-import 'package:ford_ranger/screens/loading_screen.dart';
 import 'package:ford_ranger/screens/registration.dart';
 
 void main() {
