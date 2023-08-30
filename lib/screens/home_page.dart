@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/home.dart';
+import 'package:ford_ranger/screens/user_config.dart';
 import 'package:ionicons/ionicons.dart';
 
 import 'better_job.dart';
@@ -25,7 +26,7 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     return IndexedStack(
       index: pageIndex,
-      children: [Home(), BetterJob()],
+      children: [Home(), BetterJob(), Container(), UserConfig()],
     );
   }
 
