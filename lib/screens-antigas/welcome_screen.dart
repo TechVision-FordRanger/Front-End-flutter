@@ -31,8 +31,7 @@ class WelcomeScreen extends StatelessWidget {
             SizedBox(height: 8.0),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(context,
-                    Registration.routeName);
+                Navigator.pushNamed(context, Registration.routeName);
               },
               child: Text('Cadastre sua Ranger'),
             ),

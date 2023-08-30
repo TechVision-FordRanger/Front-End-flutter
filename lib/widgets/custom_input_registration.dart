@@ -7,7 +7,7 @@ class CustomInputRegistration extends StatelessWidget {
   final TextInputType keyboardType;
   final Icon? prefixIcon;
   final bool obscureText;
-  final Function()? onTapIcon; 
+  final Function()? onTapIcon;
   final FormFieldValidator<String>? validator;
 
   CustomInputRegistration({
@@ -23,8 +23,6 @@ class CustomInputRegistration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- 
-
     return TextFormField(
       controller: controller,
       keyboardType: keyboardType,
@@ -43,8 +41,7 @@ class CustomInputRegistration extends StatelessWidget {
         filled: true,
         fillColor: Color(0xFF051A35),
         hintStyle: TextStyle(color: Colors.white),
-        errorStyle: TextStyle(
-            color: Colors.red, fontSize: 12.0),
+        errorStyle: TextStyle(color: Colors.red, fontSize: 12.0),
       ),
       style: TextStyle(color: Colors.white),
       obscureText: obscureText,
