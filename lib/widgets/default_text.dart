@@ -11,7 +11,7 @@ class DefaultText extends StatelessWidget {
       {super.key,
       this.text = '',
       this.fontSize = 16,
-      this.weight = FontWeight.w400,
+      this.weight = FontWeight.w700,
       this.color = Colors.white,
       this.align = TextAlign.left});
 
