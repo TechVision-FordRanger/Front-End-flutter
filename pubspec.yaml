@@ -71,3 +71,8 @@ flutter:
         - asset: assets/fonts/PT_Sans_Caption/PTSansCaption-Bold.ttf
         - asset: assets/fonts/PT_Sans_Caption/PTSansCaption-Regular.ttf
           weight: 700
+    - family: Epilogue
+      fonts:
+        - asset: fonts/Epilogue/Epilogue-Regular.ttf
+        - asset: fonts/Epilogue/Epilogue-Bold.ttf
+          weight: 700
