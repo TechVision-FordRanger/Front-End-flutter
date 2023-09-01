@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/screens/home_page.dart';
+import 'package:ford_ranger/screens/registration.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_password.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
@@ -84,7 +86,7 @@ class _LoginSreenState extends State<LoginScreen> {
 
                     if (email == "ford@ford.com.br" && password == "fordford") {
                       // Lógica para processar o login bem-sucedido
-                      // Navegar para a próxima tela ou realizar outras ações
+                      Navigator.pushNamed(context, HomePage.routeName);
                     } else {
                       // Exibir uma mensagem de erro
                       showDialog(
@@ -97,7 +99,7 @@ class _LoginSreenState extends State<LoginScreen> {
                             actions: [
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pop(context);
+                                  Navigator.of(context).pop();
                                 },
                                 child: const Text("OK"),
                               ),
@@ -149,7 +151,8 @@ class _LoginSreenState extends State<LoginScreen> {
                           text: "Faça seu cadastro",
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              // colocar caminho tela cadastro
+                              Navigator.pushNamed(
+                                  context, Registration.routeName);
                             },
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,

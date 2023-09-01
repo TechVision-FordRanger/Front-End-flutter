@@ -73,6 +73,6 @@ flutter:
           weight: 700
     - family: Epilogue
       fonts:
-        - asset: fonts/Epilogue/Epilogue-Regular.ttf
-        - asset: fonts/Epilogue/Epilogue-Bold.ttf
+        - asset: assets/fonts/Epilogue/static/Epilogue-Regular.ttf
+        - asset: assets/fonts/Epilogue/static/Epilogue-Bold.ttf
           weight: 700

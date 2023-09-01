@@ -9,7 +9,7 @@ import '../widgets/ranger_live_kife_image.dart';
 import '../widgets/back_button.dart';
 
 class Registration extends StatefulWidget {
-  static String routeName = '/new-user';
+  static String routeName = '/registration';
 
   @override
   State<Registration> createState() => _RegistrationState();
@@ -136,7 +136,7 @@ class _RegistrationState extends State<Registration> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     FordBackButton(onPressed: () {
-                      // Função para voltar
+                      Navigator.pushNamed(context, '/welcome');
                     }),
                     NextButton(onPressed: () {
                       if (_formKey.currentState!.validate()) {
