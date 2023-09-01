@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/loading_screen.dart';
+import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/screens/welcome_screen.dart';
 import 'package:ford_ranger/screens/create_new_password.dart';
 import 'package:ford_ranger/screens/home_page.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         // Mapeie as rotas para suas telas
         LoadingScreen.routeName: (context) => LoadingScreen(),
         WelcomeScreen.routeName: (context) => WelcomeScreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
         CreateNewPassword.routeName: (context) => CreateNewPassword(),
         Registration.routeName: (context) => Registration(),
         HomePage.routeName: (context) => HomePage(),
