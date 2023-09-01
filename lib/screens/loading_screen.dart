@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class LoadingScreen extends StatefulWidget {
-  static const String routeName = '/loading';
-
-  const LoadingScreen({super.key});
+  static const String routeName = '/LoadingScreen';
 
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
@@ -15,7 +13,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void initState() {
     super.initState();
     // Aguarde 2 segundos (2000 milissegundos) antes de navegar para a próxima tela
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(Duration(seconds: 2), () {
       Navigator.pushNamed(context, NextScreen.routeName);
     });
   }
@@ -23,14 +21,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF003478),
+      backgroundColor: Color(0xFF003478),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo_ford.png'),
-            const SizedBox(height: 16.0),
-            const CircularProgressIndicator.adaptive(),
+            Image.asset('assets/images/logo_ford_azul_escuro.png'),
+            SizedBox(height: 16.0), // Espaçamento
+            Image.asset('assets/images/ranger_picture.png'), // Nova imagem
+            SizedBox(height: 16.0), // Espaçamento
+            CircularProgressIndicator.adaptive(),
           ],
         ),
       ),
@@ -41,15 +41,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
 class NextScreen extends StatelessWidget {
   static const String routeName = '/welcome';
 
-  const NextScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Next Screen'),
+        title: Text('Next Screen'),
       ),
-      body: const Center(
+      body: Center(
         child: Text('Welcome to the Next Screen!'),
       ),
     );

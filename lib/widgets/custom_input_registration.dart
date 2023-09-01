@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CustomInputRegistration extends StatelessWidget {
   final TextEditingController controller;
@@ -25,6 +26,12 @@ class CustomInputRegistration extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
+      // inputFormatters: [
+      //    MaskTextInputFormatter(
+      //       mask: '+# (###) ###-##-##',
+      //       filter: {"#": RegExp(r'[0-9]')},
+      //       type: MaskAutoCompletionType.lazy)
+      // ],
       keyboardType: keyboardType,
       validator: validator,
       decoration: InputDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/screens/renavam.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
 
 import '../widgets/custom_background_color.dart';
@@ -7,16 +8,24 @@ import '../widgets/next_button.dart';
 import '../widgets/ranger_live_kife_image.dart';
 import '../widgets/back_button.dart';
 
-class Registration extends StatelessWidget {
+class Registration extends StatefulWidget {
   static String routeName = '/new-user';
 
+  @override
+  State<Registration> createState() => _RegistrationState();
+}
+
+class _RegistrationState extends State<Registration> {
   // Controladores para os campos de entrada
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController DateOfBirthController = TextEditingController();
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController telephoneController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
 
+  final TextEditingController DateOfBirthController = TextEditingController();
+
+  final TextEditingController emailController = TextEditingController();
+
+  final TextEditingController telephoneController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
 
   bool isValidName(String? value) {
     if (value == null || value.isEmpty) {
@@ -131,7 +140,8 @@ class Registration extends StatelessWidget {
                     }),
                     NextButton(onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        // Todos os campos são válidos, vá para a próxima tela
+                        // Se todos os campos são válidos, navegue para a tela Renavam
+                        Navigator.of(context).pushNamed(Renavam.routeName);
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(

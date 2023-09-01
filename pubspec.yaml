@@ -14,6 +14,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   ionicons: ^0.2.2
   intl: ^0.18.1
+  mask_text_input_formatter: ^2.5.0
 
 dev_dependencies:
   flutter_test:
@@ -44,6 +45,8 @@ flutter:
     - assets/images/cargo-container.png
     - assets/images/info-drone.png
     - assets/images/dots.png
+    - assets/images/Renavam.png
+    - assets/images/ranger_picture.png
 
 
 
@@ -67,4 +70,9 @@ flutter:
       fonts:
         - asset: assets/fonts/PT_Sans_Caption/PTSansCaption-Bold.ttf
         - asset: assets/fonts/PT_Sans_Caption/PTSansCaption-Regular.ttf
+          weight: 700
+    - family: Epilogue
+      fonts:
+        - asset: fonts/Epilogue/Epilogue-Regular.ttf
+        - asset: fonts/Epilogue/Epilogue-Bold.ttf
           weight: 700
