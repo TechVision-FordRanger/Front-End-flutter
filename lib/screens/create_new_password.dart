@@ -5,6 +5,8 @@ import 'package:ford_ranger/widgets/custom_input_password.dart';
 class CreateNewPassword extends StatefulWidget {
   static const String routeName = '/create-new-password';
 
+  const CreateNewPassword({super.key});
+
   @override
   State<CreateNewPassword> createState() => _CreateNewPasswordState();
 }
@@ -68,7 +70,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     child: CustomInputPassword(
                       controller: passwordController,
                       hintText: 'Senha',
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                     ),
                   ),
                 ),
@@ -80,7 +82,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     child: CustomInputPassword(
                       controller: confirmPasswordController,
                       hintText: 'Confirme sua senha',
-                      suffixIcon: Icon(Icons.visibility_off),
+                      suffixIcon: const Icon(Icons.visibility_off),
                     ),
                   ),
                 ),
@@ -96,7 +98,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                           overlayColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white),
                           checkColor: MaterialStateColor.resolveWith(
-                              (states) => Color.fromARGB(255, 13, 192, 212)),
+                              (states) => const Color.fromARGB(255, 13, 192, 212)),
                           value: confirmTerms,
                           onChanged: (bool? value) {
                             setState(() {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DefaultText extends StatelessWidget {
-  String text;
-  double fontSize;
-  FontWeight weight;
-  Color color;
-  TextAlign align;
+  final String text;
+  final double fontSize;
+  final FontWeight weight;
+  final Color color;
+  final TextAlign align;
 
   DefaultText(
       {super.key,
@@ -19,7 +19,12 @@ class DefaultText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: TextStyle(color: color, fontWeight: weight, fontSize: fontSize),
+      style: TextStyle(
+        fontFamily: 'Epilogue',
+        color: color,
+        fontWeight: weight,
+        fontSize: fontSize,
+      ),
       textAlign: align,
     );
   }

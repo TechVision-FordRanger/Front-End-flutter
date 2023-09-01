@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 class LoadingScreen extends StatefulWidget {
-  static const String routeName = '/loading';
+  static const String routeName = '/LoadingScreen';
 
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
@@ -26,8 +26,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset('assets/images/logo_ford.png'),
-            SizedBox(height: 16.0),
+            Image.asset('assets/images/logo_ford_azul_escuro.png'),
+            SizedBox(height: 16.0), // Espaçamento
+            Image.asset('assets/images/ranger_picture.png'), // Nova imagem
+            SizedBox(height: 16.0), // Espaçamento
             CircularProgressIndicator.adaptive(),
           ],
         ),

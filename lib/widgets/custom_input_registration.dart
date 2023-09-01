@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:mask_text_input_formatter/mask_text_input_formatter.dart';
 
 class CustomInputRegistration extends StatelessWidget {
   final TextEditingController controller;
@@ -7,7 +8,7 @@ class CustomInputRegistration extends StatelessWidget {
   final TextInputType keyboardType;
   final Icon? prefixIcon;
   final bool obscureText;
-  final Function()? onTapIcon; 
+  final Function()? onTapIcon;
   final FormFieldValidator<String>? validator;
 
   CustomInputRegistration({
@@ -23,10 +24,14 @@ class CustomInputRegistration extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- 
-
     return TextFormField(
       controller: controller,
+      // inputFormatters: [
+      //    MaskTextInputFormatter(
+      //       mask: '+# (###) ###-##-##',
+      //       filter: {"#": RegExp(r'[0-9]')},
+      //       type: MaskAutoCompletionType.lazy)
+      // ],
       keyboardType: keyboardType,
       validator: validator,
       decoration: InputDecoration(
@@ -43,8 +48,7 @@ class CustomInputRegistration extends StatelessWidget {
         filled: true,
         fillColor: Color(0xFF051A35),
         hintStyle: TextStyle(color: Colors.white),
-        errorStyle: TextStyle(
-            color: Colors.red, fontSize: 12.0),
+        errorStyle: TextStyle(color: Colors.red, fontSize: 12.0),
       ),
       style: TextStyle(color: Colors.white),
       obscureText: obscureText,
