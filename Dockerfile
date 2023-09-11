@@ -3,6 +3,7 @@ FROM google/dart:latest AS build
 
 WORKDIR /app
 
+
 # Instalar as ferramentas necessárias
 RUN apt-get update && apt-get install -y unzip git
 
@@ -11,13 +12,15 @@ RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 ENV PATH="$PATH:/usr/local/flutter/bin"
 
 # Crie um novo usuário para evitar a execução como root e dê a ele as permissões necessárias
-RUN useradd -ms /bin/bash flutteruser && chown -R flutteruser: /usr/local/flutter
-USER flutteruser
+# RUN useradd -ms /bin/bash flutteruser && chown -R flutteruser: /usr/local/flutter
+# USER flutteruser
 
 # Copia o projeto para o container
-COPY --chown=flutteruser . .
+COPY  . .
+# COPY --chown=flutteruser . .
 
 # Pega as dependências do Flutter
+# RUN su flutteruser -c "flutter pub get"
 RUN flutter pub get
 
 # Compila para a web
