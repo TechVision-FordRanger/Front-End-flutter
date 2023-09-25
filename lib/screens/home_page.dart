@@ -24,7 +24,6 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-
   Widget getBody() {
     return IndexedStack(
       index: pageIndex,
@@ -33,20 +32,23 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget getFooter() {
-    List<BottomNavigationBarItem> items = const [
-      BottomNavigationBarItem(
-        icon: Icon(Ionicons.home),
-        label: '',
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Ionicons.map),
-        label: '',
-      ),
-      BottomNavigationBarItem(
-          icon: Icon(Ionicons.build), label: ''),
-      BottomNavigationBarItem(
-          icon: Icon(Ionicons.list_outline), label: ''),
+    List<IconData> icons = [
+      Ionicons.home,
+      Ionicons.map,
+      Ionicons.build,
+      Ionicons.list_outline
     ];
+
+    List<BottomNavigationBarItem> items = List.generate(icons.length, (index) {
+      return BottomNavigationBarItem(
+        icon: CircleAvatar(
+          radius: 35,
+          backgroundColor: pageIndex == index ? Color(0xFF003478) : Colors.grey,
+          child: Icon(icons[index], color: Colors.black, size: 30),
+        ),
+        label: '',
+      );
+    });
 
     return BottomNavigationBar(
       backgroundColor: Colors.black,

@@ -1,33 +1,34 @@
-// Screens/CustomScreen.dart
-
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/create_new_password.dart';
 import 'package:ford_ranger/screens/registration.dart';
 import 'package:ford_ranger/widgets/back_button.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
-import 'package:ford_ranger/widgets/next_button.dart';
+import 'package:ford_ranger/widgets/default_text.dart';
 
 TextEditingController _renavamTextController = TextEditingController();
 
 class Renavam extends StatelessWidget {
   static const routeName = '/renavam';
 
+  bool isValidRenavam(String renavam) {
+    return renavam.length == 11 && int.tryParse(renavam) != null;
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: [
-          CustomBackgroundColor(), // Move este widget para fora da coluna
+          const CustomBackgroundColor(),
           Column(
             children: [
               Container(
                 height: MediaQuery.of(context).size.height * 0.05 + 30.0,
-                color: Color(0xFF003478), // Valores alpha ajustados
+                color: const Color(0xFF003478), // Valores alpha ajustados
               ),
               Container(
                 height: MediaQuery.of(context).size.height * 0.95 - 30.0,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: Color(0xFF13488e), // Valores alpha ajustados
                   borderRadius: BorderRadius.vertical(
                     top: Radius.circular(30.0),
@@ -48,40 +49,50 @@ class Renavam extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
-                        "Para seguirmos, precisamos do Renavam da sua Ranger, que pode ser contrado no documento do seu veículo",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 24,
-                            fontWeight: FontWeight.normal),
+                      DefaultText(
+                        text:
+                            "Para seguirmos, precisamos do Renavam da sua Ranger, que pode ser contrado no documento do seu veículo",
+                        fontSize: 22,
+                        weight: FontWeight.normal,
+                        color: Colors.white,
                       ),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
                       Image.asset('assets/images/Renavam.png'),
-                      SizedBox(height: 20.0),
+                      const SizedBox(height: 20.0),
                       CustomInputRegistration(
                         controller: _renavamTextController,
                         hintText: '00000000000',
-                        prefixIcon: Icon(Icons.directions_car,
+                        prefixIcon: const Icon(Icons.directions_car,
                             color: Colors
                                 .white), // Isso coloca um ícone de carro branco no início do input
                       ),
-                      SizedBox(
+                      const SizedBox(
                           height:
                               30.0), // Adicionado para dar um pouco de espaço entre o input e o botão.
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(
-                              context, CreateNewPassword.routeName);
-                          // Ação do botão. Pode ser deixada vazia por enquanto, ou você pode adicionar sua lógica aqui.
+                          if (isValidRenavam(_renavamTextController.text)) {
+                            Navigator.pushNamed(
+                                context, CreateNewPassword.routeName);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text("RENAVAM inválido!")),
+                            );
+                          }
                         },
-                        child: Text("Validar"),
+                        child: DefaultText(
+                          text: "Verificar Renavam",
+                          weight: FontWeight.normal,
+                          fontSize: 16,
+
+                          color: Colors
+                              .black, // Isso é opcional, já que a cor padrão do seu widget DefaultText é branca
+                        ),
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.white, // Fundo branco
-                          onPrimary: Colors.black, // Letra preta
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 100.0,
-                              vertical: 25.0), // Torna o botão maior
-                          // Se desejar que o botão tenha cantos arredondados, por exemplo:
+                          primary: Colors.white,
+                          onPrimary: Colors.black,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 100.0, vertical: 25.0),
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10)),
                         ),
