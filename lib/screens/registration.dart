@@ -83,7 +83,8 @@ class _RegistrationState extends State<Registration> {
                           CustomInputRegistration(
                             controller: DateOfBirthController,
                             hintText: 'Data de Nascimento',
-                            keyboardType: TextInputType.text,
+                            keyboardType: TextInputType
+                                .number, // Configurado para aceitar apenas números
                             prefixIcon:
                                 Icon(Icons.calendar_today, color: Colors.white),
                             onTapIcon: () async {
@@ -93,11 +94,16 @@ class _RegistrationState extends State<Registration> {
                                 firstDate: DateTime(1900),
                                 lastDate: DateTime.now(),
                               );
-
                               if (selectedDate != null) {
                                 DateOfBirthController.text =
-                                    "${selectedDate.day}/${selectedDate.month}/${selectedDate.year}";
+                                    "${selectedDate.day}${selectedDate.month}${selectedDate.year}";
                               }
+                            },
+                            validator: (value) {
+                              if (value == null || value.length != 8) {
+                                return 'Digite uma data válida com 8 dígitos';
+                              }
+                              return null;
                             },
                           ),
                           SizedBox(height: 30.0),

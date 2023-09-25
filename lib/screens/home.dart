@@ -167,7 +167,18 @@ class Home extends StatelessWidget {
                           )),
                           Padding(
                             padding: const EdgeInsets.all(8.0),
-                            child: Container(color: Color.fromARGB(255, 122, 14, 6), width: 95, height: 19,),
+                            child: Container(
+                              width: 95,
+                              height: 19,
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 122, 14, 6),
+                                border: Border.all(
+                                  color: Colors.white,
+                                  width:
+                                      2, // você pode ajustar a espessura da borda aqui
+                                ),
+                              ),
+                            ),
                           ),
                         ])
                       ],

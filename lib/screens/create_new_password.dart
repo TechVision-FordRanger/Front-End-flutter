@@ -17,6 +17,12 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
       TextEditingController();
 
   bool confirmTerms = false;
+  bool isPasswordVisible = false;
+  void togglePasswordVisibility() {
+    setState(() {
+      isPasswordVisible = !isPasswordVisible;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +57,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(top: 365 - (30  + 331)),
+                  padding: EdgeInsets.only(top: 365 - (30 + 331)),
                   child: SizedBox(
                     width: 347,
                     child: Text('Senhas devem conter pelo menos 8 caracteres',
@@ -70,7 +76,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     child: CustomInputPassword(
                       controller: passwordController,
                       hintText: 'Senha',
-                      suffixIcon: const Icon(Icons.visibility_off),
+                      suffixIcon: Icon(isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onTapIcon: togglePasswordVisibility,
+                      obscureText: !isPasswordVisible,
                     ),
                   ),
                 ),
@@ -82,7 +92,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     child: CustomInputPassword(
                       controller: confirmPasswordController,
                       hintText: 'Confirme sua senha',
-                      suffixIcon: const Icon(Icons.visibility_off),
+                      suffixIcon: Icon(isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onTapIcon: togglePasswordVisibility,
+                      obscureText: !isPasswordVisible,
                     ),
                   ),
                 ),
@@ -97,8 +111,8 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                               (states) => Colors.white),
                           overlayColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white),
-                          checkColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromARGB(255, 13, 192, 212)),
+                          checkColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromARGB(255, 13, 192, 212)),
                           value: confirmTerms,
                           onChanged: (bool? value) {
                             setState(() {
@@ -138,9 +152,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       style: ButtonStyle(
                           backgroundColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white)),
-                      onPressed: () => {
-                        Navigator.pushNamed(context, '')
-                      },
+                      onPressed: () => {Navigator.pushNamed(context, '/home')},
                       child: const Text(
                         'Torne-se um Membro Ranger',
                         style: TextStyle(color: Colors.black, fontSize: 16),

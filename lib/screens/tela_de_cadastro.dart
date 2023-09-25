@@ -74,17 +74,28 @@ class CadastroScreen extends StatelessWidget {
                               color: Colors.white), // Ícone de carta (e-mail)
                         ),
                         const SizedBox(height: 30.0),
-                        CustomInputRegistration(
-                          controller: telefoneController,
-                          hintText: 'Número de Telefone',
-                          keyboardType: TextInputType.phone,
-                          prefixIcon: const Icon(Icons.phone,
-                              color: Colors.white), // Ícone de telefone
-                        ),
-                        const SizedBox(height: 20.0),
-                      ],
+                               CustomInputRegistration(
+                            controller: telefoneController,
+                            hintText: 'Número de Telefone',
+                            keyboardType: TextInputType.phone,
+                            prefixIcon:
+                                const Icon(Icons.phone, color: Colors.white),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Insira um número de telefone';
+                              }
+                              RegExp regex =
+                                  RegExp(r'^\+\d \(\d{3}\) \d{3}-\d{2}-\d{2}$');
+                              if (!regex.hasMatch(value)) {
+                                return 'Formato de telefone inválido';
+                              }
+                              return null;
+                            },
+                          ),
+                          const SizedBox(height: 20.0),
+                        ],
+                      ),
                     ),
-                  ),
                 ],
               ),
             ),
