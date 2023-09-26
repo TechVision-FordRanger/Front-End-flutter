@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/utils/terms_of_use.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 
@@ -55,57 +56,103 @@ class UserConfig extends StatelessWidget {
                 ]))
           ]),
         ),
-        Container(
-          child: Center(
-            child: DefaultText(
-              text: 'Alterar senha ou email',
-              align: TextAlign.center,
-              fontSize: 20,
-              weight: FontWeight.w700,
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, '/changePasswordEmail');
+          },
+          child: Container(
+            child: Center(
+              child: DefaultText(
+                text: 'Alterar senha ou email',
+                align: TextAlign.center,
+                fontSize: 20,
+                weight: FontWeight.w700,
+              ),
             ),
+            color: Color(0xFF022655),
+            width: double.infinity,
+            height: 69,
           ),
-          color: Color(0xFF022655),
-          width: double.infinity,
-          height: 69,
         ),
-        Container(
-          child: Center(
-            child: DefaultText(
-              text: 'Gerenciamento de Notificações',
-              align: TextAlign.center,
-              fontSize: 20,
-              weight: FontWeight.w700,
+        InkWell(
+          onTap: () {
+            Navigator.pushNamed(context, '/notificationManagement');
+          },
+          child: Container(
+            child: Center(
+              child: DefaultText(
+                text: 'Gerenciamento de Notificações',
+                align: TextAlign.center,
+                fontSize: 20,
+                weight: FontWeight.w700,
+              ),
             ),
+            color: Color.fromARGB(0, 2, 38, 85),
+            width: double.infinity,
+            height: 69,
           ),
-          color: Color.fromARGB(0, 2, 38, 85),
-          width: double.infinity,
-          height: 69,
         ),
-        Container(
-          child: Center(
-            child: DefaultText(
-              text: 'Termos de Uso',
-              align: TextAlign.center,
-              fontSize: 20,
-              weight: FontWeight.w700,
+        InkWell(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) => TermsOfUseDialog(),
+            );
+          },
+          child: Container(
+            child: Center(
+              child: DefaultText(
+                text: 'Termos de Uso',
+                align: TextAlign.center,
+                fontSize: 20,
+                weight: FontWeight.w700,
+              ),
             ),
+            color: Color(0xFF022655),
+            width: double.infinity,
+            height: 69,
           ),
-          color: Color(0xFF022655),
-          width: double.infinity,
-          height: 69,
         ),
-        Container(
-          child: Center(
-            child: DefaultText(
-              text: 'Log Out',
-              align: TextAlign.center,
-              fontSize: 20,
-              weight: FontWeight.w700,
+        InkWell(
+          onTap: () {
+            showDialog(
+              context: context,
+              builder: (BuildContext context) {
+                return AlertDialog(
+                  title: Text('Confirmação'),
+                  content: Text('Você tem certeza que deseja fazer logout?'),
+                  actions: [
+                    TextButton(
+                      child: const Text('Cancelar'),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Fecha o modal
+                      },
+                    ),
+                    TextButton(
+                      child: const Text('Sim'),
+                      onPressed: () {
+                        Navigator.of(context).pop(); // Fecha o modal
+                        Navigator.pushNamed(context, '/logOut');
+                      },
+                    ),
+                  ],
+                );
+              },
+            );
+          },
+          child: Container(
+            child: Center(
+              child: DefaultText(
+                text: 'Log Out',
+                align: TextAlign.center,
+                fontSize: 20,
+                weight: FontWeight.w700,
+              ),
             ),
+            color: Color.fromARGB(0, 2, 38, 85),
+            width: double.infinity,
+            height: 69,
           ),
-          color: Color.fromARGB(0, 2, 38, 85),
-          width: double.infinity,
-          height: 69,
         ),
         Container(
           child: Center(

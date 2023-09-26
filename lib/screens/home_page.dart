@@ -43,8 +43,8 @@ class _HomePageState extends State<HomePage> {
       return BottomNavigationBarItem(
         icon: CircleAvatar(
           radius: 35,
-          backgroundColor: pageIndex == index ? Color(0xFF003478) : Colors.grey,
-          child: Icon(icons[index], color: Colors.black, size: 30),
+          backgroundColor: pageIndex == index ? Color(0xFF003478) : Color(0xFF343434),
+          child: Icon(icons[index], color: Colors.white, size: 30),
         ),
         label: '',
       );
