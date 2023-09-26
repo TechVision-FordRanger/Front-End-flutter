@@ -1,4 +1,6 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/utils/terms_of_use.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_password.dart';
 
@@ -18,10 +20,55 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
 
   bool confirmTerms = false;
   bool isPasswordVisible = false;
+  String? errorMessage;
+
   void togglePasswordVisibility() {
     setState(() {
       isPasswordVisible = !isPasswordVisible;
     });
+  }
+
+  void _showTermsOfUseDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => TermsOfUseDialog(),
+    );
+  }
+
+  bool validateInputs() {
+    if (passwordController.text.isEmpty ||
+        confirmPasswordController.text.isEmpty) {
+      setState(() {
+        errorMessage = "Preencha todos os campos";
+      });
+      return false;
+    }
+
+    if (!confirmTerms) {
+      setState(() {
+        errorMessage = "Aceite os Termos de Uso";
+      });
+      return false;
+    }
+
+    if (passwordController.text != confirmPasswordController.text) {
+      setState(() {
+        errorMessage = "As senhas não coincidem";
+      });
+      return false;
+    }
+
+    final passwordPattern = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$';
+    final passwordRegex = RegExp(passwordPattern);
+    if (!passwordRegex.hasMatch(passwordController.text)) {
+      setState(() {
+        errorMessage =
+            "A senha precisa ter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um número.";
+      });
+      return false;
+    }
+
+    return true;
   }
 
   @override
@@ -122,7 +169,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                         ),
                         Flexible(
                           child: RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
@@ -133,6 +180,14 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 TextSpan(
                                   text: 'Termos de Uso',
                                   style: TextStyle(fontWeight: FontWeight.w900),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) =>
+                                            TermsOfUseDialog(),
+                                      );
+                                    },
                                 ),
                                 TextSpan(text: ' do aplicativo'),
                               ],
@@ -152,14 +207,29 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       style: ButtonStyle(
                           backgroundColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white)),
-                      onPressed: () => {Navigator.pushNamed(context, '/home')},
+                      onPressed: () {
+                        if (validateInputs()) {
+                          Navigator.pushNamed(context, '/home');
+                        }
+                      },
                       child: const Text(
                         'Torne-se um Membro Ranger',
                         style: TextStyle(color: Colors.black, fontSize: 16),
                       ),
                     ),
                   ),
-                )
+                ),
+                if (errorMessage != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Text(
+                      errorMessage!,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),
