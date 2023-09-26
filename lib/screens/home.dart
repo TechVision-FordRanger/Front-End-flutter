@@ -14,27 +14,33 @@ class Home extends StatelessWidget {
               child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 82),
+            padding: const EdgeInsets.only(top: 50),
             child: Container(
                 child: Image.asset(
               'assets/images/perfil.png',
             )),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 240 - (82 + 130)),
-            child: Text('petter Parker',
+          const Padding(
+            padding: EdgeInsets.only(top: 240 - (82 + 130)),
+            child: Text('Pretter Parker',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.w700)),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 283 - (38 + 240)),
-            child: Text('petterparker@ford.com',
+          const Padding(
+            padding: EdgeInsets.only(top: 283 - (38 + 240)),
+            child: Opacity(
+              opacity: 0.6,
+              child: Text(
+                'petterparker@ford.com',
                 style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w400)),
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 338 - (283 + 20)),
@@ -166,7 +172,7 @@ class Home extends StatelessWidget {
                             weight: FontWeight.w700,
                           )),
                           Padding(
-                            padding: const EdgeInsets.all(8.0),
+                            padding: const EdgeInsets.only(top: 0, bottom: 0),
                             child: Container(
                               width: 95,
                               height: 19,
@@ -175,7 +181,7 @@ class Home extends StatelessWidget {
                                 border: Border.all(
                                   color: Colors.white,
                                   width:
-                                      2, // você pode ajustar a espessura da borda aqui
+                                      1.2, // você pode ajustar a espessura da borda aqui
                                 ),
                               ),
                             ),

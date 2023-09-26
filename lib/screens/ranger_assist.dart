@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
 
@@ -9,7 +10,7 @@ class RangerAssist extends StatelessWidget {
         child: SingleChildScrollView(
             child: Column(children: [
       Padding(
-        padding: const EdgeInsets.only(top: 91),
+        padding: const EdgeInsets.only(top: 50),
         child: DefaultText(
             text: 'Ranger Assist', fontSize: 32, weight: FontWeight.w700),
       ),
@@ -69,10 +70,30 @@ class RangerAssist extends StatelessWidget {
                               borderRadius: BorderRadius.circular(1000),
                               color: Color(0xC7003478)),
                           child: Center(
-                              child: DefaultText(
-                            text: 'Ultimo Abastecimento: há 4 dias',
-                            fontSize: 10,
-                            weight: FontWeight.w400,
+                              child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Ultimo Abastecimento: ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight
+                                        .bold, // Definindo para negrito
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'há 4 dias',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                              ],
+                            ),
                           ))),
                       Container(
                           width: 150,
@@ -81,10 +102,30 @@ class RangerAssist extends StatelessWidget {
                               borderRadius: BorderRadius.circular(1000),
                               color: Color(0xC7003478)),
                           child: Center(
-                              child: DefaultText(
-                            text: 'Quantidade restante: 40 litros',
-                            fontSize: 10,
-                            weight: FontWeight.w400,
+                              child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Quantidade Restante: ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight
+                                        .bold, // Definindo para negrito
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '40 Litros',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                              ],
+                            ),
                           ))),
                       Container(
                           width: 150,
@@ -93,10 +134,30 @@ class RangerAssist extends StatelessWidget {
                               borderRadius: BorderRadius.circular(1000),
                               color: Color(0xC7003478)),
                           child: Center(
-                              child: DefaultText(
-                            text: 'Kms a ser rodados: 120 kms',
-                            fontSize: 10,
-                            weight: FontWeight.w400,
+                              child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Autonomia: ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight
+                                        .bold, // Definindo para negrito
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '120 Km',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                              ],
+                            ),
                           )))
                     ]),
               )),
@@ -145,10 +206,30 @@ class RangerAssist extends StatelessWidget {
                               borderRadius: BorderRadius.circular(1000),
                               color: Color(0xFF003478)),
                           child: Center(
-                              child: DefaultText(
-                            text: 'Ultima Manutenção: há 14 dias',
-                            fontSize: 10,
-                            weight: FontWeight.w400,
+                              child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Ultima Manutenção: ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight
+                                        .bold, // Definindo para negrito
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: 'há 24 dias',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                              ],
+                            ),
                           ))),
                       Container(
                           width: 150,
@@ -157,10 +238,30 @@ class RangerAssist extends StatelessWidget {
                               borderRadius: BorderRadius.circular(1000),
                               color: Color(0xFF003478)),
                           child: Center(
-                              child: DefaultText(
-                            text: 'Kms rodados: 10 kms',
-                            fontSize: 10,
-                            weight: FontWeight.w400,
+                              child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Kms Rodados: ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight
+                                        .bold, // Definindo para negrito
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '40km',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                              ],
+                            ),
                           ))),
                       Container(
                           width: 150,
@@ -169,10 +270,30 @@ class RangerAssist extends StatelessWidget {
                               borderRadius: BorderRadius.circular(1000),
                               color: Color(0xFF003478)),
                           child: Center(
-                              child: DefaultText(
-                            text: 'Próxima revisão em: 10 kms',
-                            fontSize: 10,
-                            weight: FontWeight.w400,
+                              child: RichText(
+                            text: const TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: 'Proxíma revisão: ',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight
+                                        .bold, // Definindo para negrito
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: '9000kms',
+                                  style: TextStyle(
+                                    fontSize: 10,
+                                    fontWeight: FontWeight.w400,
+                                    color: Colors
+                                        .white, // Defina a cor conforme necessário
+                                  ),
+                                ),
+                              ],
+                            ),
                           )))
                     ]),
               )),
@@ -221,7 +342,7 @@ class RangerAssist extends StatelessWidget {
                                 child: Padding(
                                   padding: const EdgeInsets.all(10.0),
                                   child:
-                                      Image.asset('assets/images/icon-gas.png'),
+                                      Image.asset('assets/images/tools2.png'),
                                 ))
                           ]),
                       Container(
@@ -296,12 +417,23 @@ class RangerAssist extends StatelessWidget {
             width: 355,
             height: 230,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(15),
                 color: Color(0xFF427DCA)),
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(child: Image.asset('assets/images/map-two-ex.png')),
+                  Container(
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
+                      },
+                      child: Image.asset('assets/images/map-two-ex.png'),
+                    ),
+                  ),
                   Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
@@ -318,7 +450,8 @@ class RangerAssist extends StatelessWidget {
                                       text: 'Rua xxxxx, n88', fontSize: 11),
                                   DefaultText(
                                       text: '5 minutos de distância',
-                                      fontSize: 11)
+                                      fontSize: 11,
+                                      weight: FontWeight.bold)
                                 ])),
                         Container(
                             width: 140,
@@ -333,7 +466,8 @@ class RangerAssist extends StatelessWidget {
                                       text: 'Rua xxxxx, n88', fontSize: 11),
                                   DefaultText(
                                       text: '15 minutos de distância',
-                                      fontSize: 11)
+                                      fontSize: 11,
+                                      weight: FontWeight.bold)
                                 ])),
                         Container(
                             width: 140,
@@ -348,7 +482,8 @@ class RangerAssist extends StatelessWidget {
                                       text: 'Rua xxxxx, n88', fontSize: 11),
                                   DefaultText(
                                       text: '20 minutos de distância',
-                                      fontSize: 11)
+                                      fontSize: 11,
+                                      weight: FontWeight.bold)
                                 ])),
                         Container(
                             width: 140,
@@ -363,7 +498,8 @@ class RangerAssist extends StatelessWidget {
                                       text: 'Rua xxxxx, n88', fontSize: 11),
                                   DefaultText(
                                       text: '5 minutos de distância',
-                                      fontSize: 11)
+                                      fontSize: 11,
+                                      weight: FontWeight.bold)
                                 ])),
                       ])
                 ])),
@@ -394,8 +530,17 @@ class RangerAssist extends StatelessWidget {
                     width: 320,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(30),
-                        color: Color(0xC6003478)),
-                    child: Image.asset('assets/images/big-info.png')),
+                        color: const Color(0xC6003478)),
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
+                      },
+                      child: Image.asset('assets/images/big-info.png'),
+                    )),
               ),
             ])),
       ),

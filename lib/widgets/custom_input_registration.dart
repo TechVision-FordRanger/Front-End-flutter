@@ -26,15 +26,19 @@ class CustomInputRegistration extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-       inputFormatters: keyboardType == TextInputType.phone 
-        ? [ 
-            MaskTextInputFormatter(
-               mask: '(##) #####-####',
-               filter: {"#": RegExp(r'[0-9]')},
-               type: MaskAutoCompletionType.lazy
-            )
-          ]
-        : [],
+      inputFormatters: keyboardType == TextInputType.phone
+          ? [
+              MaskTextInputFormatter(
+                  mask: '(##) #####-####',
+                  filter: {"#": RegExp(r'[0-9]')},
+                  type: MaskAutoCompletionType.lazy)
+            ]
+          : keyboardType == TextInputType.datetime
+              ? [
+                  MaskTextInputFormatter(
+                      mask: '##/##/####', filter: {"#": RegExp(r'[0-9]')})
+                ]
+              : [],
       keyboardType: keyboardType,
       validator: validator,
       decoration: InputDecoration(
