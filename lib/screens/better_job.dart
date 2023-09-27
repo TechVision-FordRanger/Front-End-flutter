@@ -101,10 +101,10 @@ class BetterJob extends StatelessWidget {
                           child: Column(
                             children: [
                               Image.asset(
-                                'assets/images/radio-icon.png',
+                                'assets/images/icon-radio.png',
                               ),
                               DefaultText(
-                                  text: 'Sinal',
+                                  text: 'Sinal de Radio',
                                   color: Color(0xFF003478),
                                   align: TextAlign.center,
                                   fontSize: 15,
