@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
@@ -555,7 +557,56 @@ class RangerAssist extends StatelessWidget {
   }
 }
 
-class PDFViewScreen extends StatelessWidget {
+class PDFViewScreen extends StatefulWidget {
+  @override
+  _PDFViewScreenState createState() => _PDFViewScreenState();
+}
+
+class _PDFViewScreenState extends State<PDFViewScreen> {
+  final String pdfPath = 'assets/pdf/manual-ranger.pdf';
+
+  Completer<PDFViewController> _controller = Completer<PDFViewController>();
+
+  int pages = 0;
+  bool isReady = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Manual do usuário'),
+      ),
+      body: PDFView(
+        filePath: pdfPath,
+        enableSwipe: true,
+        swipeHorizontal: true,
+        autoSpacing: false,
+        pageFling: false,
+        onRender: (_pages) {
+          setState(() {
+            pages = _pages!;
+            isReady = true;
+          });
+        },
+        onError: (error) {
+          print(error.toString());
+        },
+        onPageError: (page, error) {
+          print('$page: ${error.toString()}');
+        },
+        onViewCreated: (PDFViewController pdfViewController) {
+          _controller.complete(pdfViewController);
+        },
+        onPageChanged: (int? page, int? total) {
+          print('page change: $page/$total');
+        },
+      ),
+    );
+  }
+}
+
+
+/*class PDFViewScreen extends StatelessWidget {
   final String pdfPath = 'assets/images/feedback.pdf';
 
   @override
@@ -571,4 +622,4 @@ class PDFViewScreen extends StatelessWidget {
       ),
     );
   }
-}
+}*/
