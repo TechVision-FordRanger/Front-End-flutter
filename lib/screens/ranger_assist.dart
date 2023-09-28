@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
 
 class RangerAssist extends StatelessWidget {
   @override
@@ -522,7 +523,12 @@ class RangerAssist extends StatelessWidget {
                 child: DefaultText(
                     text: 'Ranger Limited', color: Colors.black, fontSize: 15),
               ),
-              DefaultText(text: '2024', color: Colors.black, fontSize: 15),
+              DefaultText(
+                text: '2024',
+                color: Colors.black,
+                fontSize: 15,
+                weight: FontWeight.w700,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -535,7 +541,7 @@ class RangerAssist extends StatelessWidget {
                       onTap: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
+                            builder: (context) => PDFViewScreen(),
                           ),
                         );
                       },
@@ -546,5 +552,47 @@ class RangerAssist extends StatelessWidget {
       ),
       Container(height: 65)
     ])));
+  }
+}
+
+class PDFViewScreen extends StatelessWidget {
+  final String pdfPath =
+      'assets/images/feedback.pdf'; // Replace with your PDF file path
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Manual do usuário'),
+      ),
+      body: PDFView(
+        filePath: pdfPath,
+        enableSwipe: true,
+        swipeHorizontal: true,
+      ),
+    );
+  }
+}
+
+class DefaultText extends StatelessWidget {
+  final String text;
+  final Color color;
+  final double fontSize;
+  final FontWeight weight;
+
+  const DefaultText(
+      {Key? key,
+      required this.text,
+      this.color = Colors.black,
+      this.fontSize = 14.0,
+      this.weight = FontWeight.normal})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      text,
+      style: TextStyle(color: color, fontSize: fontSize, fontWeight: weight),
+    );
   }
 }
