@@ -5,6 +5,7 @@ import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RangerAssist extends StatelessWidget {
   @override
@@ -540,13 +541,7 @@ class RangerAssist extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         color: const Color(0xC6003478)),
                     child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => PDFViewScreen(),
-                          ),
-                        );
-                      },
+                      onTap: _launchUrl,
                       child: Image.asset('assets/images/big-info.png'),
                     )),
               ),
@@ -555,71 +550,13 @@ class RangerAssist extends StatelessWidget {
       Container(height: 65)
     ])));
   }
-}
 
-class PDFViewScreen extends StatefulWidget {
-  @override
-  _PDFViewScreenState createState() => _PDFViewScreenState();
-}
+  final Uri _url = Uri.parse(
+      'https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2023/ranger/pdf/fbr-ranger-2023-manual-do-propietario.pdf');
 
-class _PDFViewScreenState extends State<PDFViewScreen> {
-  final String pdfPath = 'assets/pdf/manual-ranger.pdf';
-
-  Completer<PDFViewController> _controller = Completer<PDFViewController>();
-
-  int pages = 0;
-  bool isReady = false;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Manual do usuário'),
-      ),
-      body: PDFView(
-        filePath: pdfPath,
-        enableSwipe: true,
-        swipeHorizontal: true,
-        autoSpacing: false,
-        pageFling: false,
-        onRender: (_pages) {
-          setState(() {
-            pages = _pages!;
-            isReady = true;
-          });
-        },
-        onError: (error) {
-          print(error.toString());
-        },
-        onPageError: (page, error) {
-          print('$page: ${error.toString()}');
-        },
-        onViewCreated: (PDFViewController pdfViewController) {
-          _controller.complete(pdfViewController);
-        },
-        onPageChanged: (int? page, int? total) {
-          print('page change: $page/$total');
-        },
-      ),
-    );
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 }
-
-
-/*class PDFViewScreen extends StatelessWidget {
-  final String pdfPath = 'assets/images/feedback.pdf';
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Manual do usuário'),
-      ),
-      body: PDFView(
-        filePath: pdfPath,
-        enableSwipe: true,
-        swipeHorizontal: true,
-      ),
-    );
-  }
-}*/
