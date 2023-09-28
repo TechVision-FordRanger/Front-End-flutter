@@ -556,8 +556,7 @@ class RangerAssist extends StatelessWidget {
 }
 
 class PDFViewScreen extends StatelessWidget {
-  final String pdfPath =
-      'assets/images/feedback.pdf'; // Replace with your PDF file path
+  final String pdfPath = 'assets/images/feedback.pdf';
 
   @override
   Widget build(BuildContext context) {
@@ -570,29 +569,6 @@ class PDFViewScreen extends StatelessWidget {
         enableSwipe: true,
         swipeHorizontal: true,
       ),
-    );
-  }
-}
-
-class DefaultText extends StatelessWidget {
-  final String text;
-  final Color color;
-  final double fontSize;
-  final FontWeight weight;
-
-  const DefaultText(
-      {Key? key,
-      required this.text,
-      this.color = Colors.black,
-      this.fontSize = 14.0,
-      this.weight = FontWeight.normal})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: TextStyle(color: color, fontSize: fontSize, fontWeight: weight),
     );
   }
 }
