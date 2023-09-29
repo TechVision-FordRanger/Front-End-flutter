@@ -6,7 +6,13 @@ import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 
+import '../models/default_response_dto.dart';
+import '../models/user_dto.dart';
+import '../services/onboarding_service.dart';
+
 class Renavam extends StatefulWidget {
+  Renavam(this.user);
+  final UserDto user;
   static const routeName = '/renavam';
 
   @override
@@ -14,6 +20,7 @@ class Renavam extends StatefulWidget {
 }
 
 class _RenavamState extends State<Renavam> {
+  final OnboardingService onboardingService = OnboardingService();
   final _formKey = GlobalKey<FormState>();
   TextEditingController _renavamTextController = TextEditingController();
 
@@ -71,7 +78,8 @@ class _RenavamState extends State<Renavam> {
                         CustomInputRegistration(
                           controller: _renavamTextController,
                           hintText: '00000000000',
-                          prefixIcon: Icon(Icons.directions_car, color: Colors.white),
+                          prefixIcon:
+                              Icon(Icons.directions_car, color: Colors.white),
                           validator: (value) {
                             if (!isValidRenavam(value!)) {
                               return "RENAVAM inválido!";
@@ -83,7 +91,7 @@ class _RenavamState extends State<Renavam> {
                         ElevatedButton(
                           onPressed: () {
                             if (_formKey.currentState!.validate()) {
-                              Navigator.pushNamed(context, CreateNewPassword.routeName);
+                              saveRenavam();
                             }
                           },
                           child: DefaultText(
@@ -95,8 +103,10 @@ class _RenavamState extends State<Renavam> {
                           style: ElevatedButton.styleFrom(
                             primary: Colors.white,
                             onPrimary: Colors.black,
-                            padding: const EdgeInsets.symmetric(horizontal: 100.0, vertical: 25.0),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 100.0, vertical: 25.0),
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10)),
                           ),
                         ),
                       ],
@@ -120,5 +130,31 @@ class _RenavamState extends State<Renavam> {
         ],
       ),
     );
+  }
+
+  dynamic saveRenavam() async {
+    widget.user.renavam = _renavamTextController.text;
+    dynamic id = widget.user.id;
+    Map<String, String> renavamObject = {
+      'renavam': _renavamTextController.text
+    };
+    if (id != null && id! > 0) {
+      DefaultResponseDto<UserDto> res =
+          await onboardingService.updateUser(widget.user.id!, renavamObject);
+      if (res.success) {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return CreateNewPassword(res.data!);
+          },
+        ));
+      } else {
+        // return ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(
+        //     content: Text(res.message),
+        //     backgroundColor: Colors.red,
+        //   ),
+        // );
+      }
+    }
   }
 }

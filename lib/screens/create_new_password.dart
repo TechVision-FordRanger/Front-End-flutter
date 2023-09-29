@@ -1,13 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/utils/terms_of_use.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_password.dart';
 
+import '../models/default_response_dto.dart';
+import '../models/user_dto.dart';
+import '../services/onboarding_service.dart';
+
 class CreateNewPassword extends StatefulWidget {
   static const String routeName = '/create-new-password';
 
-  const CreateNewPassword({super.key});
+  CreateNewPassword(this.user);
+  final UserDto user;
 
   @override
   State<CreateNewPassword> createState() => _CreateNewPasswordState();
@@ -17,6 +23,8 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
+
+  final OnboardingService onboardingService = OnboardingService();
 
   bool confirmTerms = false;
   bool isPasswordVisible = false;
@@ -207,10 +215,8 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       style: ButtonStyle(
                           backgroundColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white)),
-                      onPressed: () {
-                        if (validateInputs()) {
-                          Navigator.pushNamed(context, '/home');
-                        }
+                      onPressed: () => {
+                        savePassword()
                       },
                       child: const Text(
                         'Torne-se um Membro Ranger',
@@ -236,5 +242,25 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
         ),
       ),
     );
+  }
+
+   dynamic savePassword() async {
+    widget.user.password = passwordController.text;
+    dynamic id = widget.user.id;
+    Map<String, String> passwordObject = {'password': passwordController.text};
+    if (id != null && id! > 0) {
+      DefaultResponseDto<UserDto> res =
+          await onboardingService.updateUser(widget.user.id!, passwordObject);
+      if (res.success) {
+        Navigator.pushNamed(context, LoginScreen.routeName);
+      } else {
+        // return ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(
+        //     content: Text(res.message),
+        //     backgroundColor: Colors.red,
+        //   ),
+        // );
+      }
+    }
   }
 }

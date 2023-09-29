@@ -1,7 +1,13 @@
+import 'dart:js_interop';
+
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/models/default_response_dto.dart';
+import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/screens/renavam.dart';
+import 'package:ford_ranger/services/onboarding_service.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
 
+import '../models/new_user_dto.dart';
 import '../widgets/custom_background_color.dart';
 import '../widgets/logo_ford.dart';
 import '../widgets/next_button.dart';
@@ -24,6 +30,8 @@ class _RegistrationState extends State<Registration> {
   final TextEditingController emailController = TextEditingController();
 
   final TextEditingController telephoneController = TextEditingController();
+
+  final OnboardingService onboardingService = OnboardingService();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -299,7 +307,7 @@ class _RegistrationState extends State<Registration> {
                     NextButton(onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Se todos os campos são válidos, navegue para a tela Renavam
-                        Navigator.of(context).pushNamed(Renavam.routeName);
+                        createUser();
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -318,5 +326,30 @@ class _RegistrationState extends State<Registration> {
         ),
       ),
     );
+  }
+
+  dynamic createUser() async {
+    NewUserDto user = NewUserDto(
+        firstName: nameController.value.text,
+        email: emailController.value.text,
+        birthDate: dateOfBirthController.value.text,
+        celphone: telephoneController.text);
+
+    dynamic jsonUser = user.toJson();
+
+    DefaultResponseDto res = await onboardingService.createUser(jsonUser);
+
+    if (res.success) {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+        return Renavam(res.data);
+      },));
+    } else {
+      return ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(res.message),
+          backgroundColor: Colors.red,
+        ),
+      );
+    }
   }
 }
