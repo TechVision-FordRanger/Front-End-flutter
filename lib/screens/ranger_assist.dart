@@ -6,6 +6,7 @@ import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
 import 'package:flutter_pdfview/flutter_pdfview.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class RangerAssist extends StatelessWidget {
   @override
@@ -472,7 +473,9 @@ class RangerAssist extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                      child: Image.asset('assets/images/map-two-ex.png'),
+                    child: InkWell(
+                        onTap: _launchUrlMaps,
+                        child: Image.asset('assets/images/map-two-ex.png')),
                   ),
                   Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -593,7 +596,7 @@ class RangerAssist extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         color: const Color(0xC6003478)),
                     child: InkWell(
-                      onTap: _launchUrl,
+                      onTap: _launchUrlPdf,
                       child: Image.asset('assets/images/big-info.png'),
                     )),
               ),
@@ -603,12 +606,20 @@ class RangerAssist extends StatelessWidget {
     ])));
   }
 
-  final Uri _url = Uri.parse(
+  final Uri _urlPdf = Uri.parse(
       'https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2023/ranger/pdf/fbr-ranger-2023-manual-do-propietario.pdf');
 
-  Future<void> _launchUrl() async {
-    if (!await launchUrl(_url)) {
-      throw Exception('Could not launch $_url');
+  Future<void> _launchUrlPdf() async {
+    if (!await launchUrl(_urlPdf)) {
+      throw Exception('Could not launch $_urlPdf');
+    }
+  }
+
+  final Uri _urlMaps = Uri.parse('https://www.google.com/maps');
+
+  Future<void> _launchUrlMaps() async {
+    if (!await launchUrl(_urlMaps)) {
+      throw Exception('Could not launch $_urlMaps');
     }
   }
 }
