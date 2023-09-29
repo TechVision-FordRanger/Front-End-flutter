@@ -8,10 +8,23 @@ import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
 import 'package:ford_ranger/widgets/next_button.dart';
 
+import '../models/default_response_dto.dart';
+import '../models/user_dto.dart';
+import '../services/onboarding_service.dart';
+
 TextEditingController _renavamTextController = TextEditingController();
 
-class Renavam extends StatelessWidget {
+class Renavam extends StatefulWidget {
+  Renavam(this.user);
+  final UserDto user;
   static const routeName = '/renavam';
+
+  @override
+  State<Renavam> createState() => _RenavamState();
+}
+
+class _RenavamState extends State<Renavam> {
+  final OnboardingService onboardingService = OnboardingService();
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +83,9 @@ class Renavam extends StatelessWidget {
                               30.0), // Adicionado para dar um pouco de espaço entre o input e o botão.
                       ElevatedButton(
                         onPressed: () {
-                          Navigator.pushNamed(
-                              context, CreateNewPassword.routeName);
+                          // Navigator.pushNamed(
+                          //     context, CreateNewPassword.routeName);
+                          saveRenavam();
                           // Ação do botão. Pode ser deixada vazia por enquanto, ou você pode adicionar sua lógica aqui.
                         },
                         child: Text("Validar"),
@@ -106,5 +120,29 @@ class Renavam extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  dynamic saveRenavam() async {
+    widget.user.renavam = _renavamTextController.text;
+    dynamic id = widget.user.id;
+    Map<String, String> renavamObject = {'renavam': _renavamTextController.text};
+    if (id != null && id! > 0) {
+      DefaultResponseDto<UserDto> res =
+          await onboardingService.updateUser(widget.user.id!, renavamObject);
+      if (res.success) {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return CreateNewPassword(res.data!);
+          },
+        ));
+      } else {
+        // return ScaffoldMessenger.of(context).showSnackBar(
+        //   SnackBar(
+        //     content: Text(res.message),
+        //     backgroundColor: Colors.red,
+        //   ),
+        // );
+      }
+    }
   }
 }
