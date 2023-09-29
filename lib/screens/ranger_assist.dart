@@ -1,7 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
+import 'package:flutter_pdfview/flutter_pdfview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class RangerAssist extends StatelessWidget {
   @override
@@ -522,7 +526,12 @@ class RangerAssist extends StatelessWidget {
                 child: DefaultText(
                     text: 'Ranger Limited', color: Colors.black, fontSize: 15),
               ),
-              DefaultText(text: '2024', color: Colors.black, fontSize: 15),
+              DefaultText(
+                text: '2024',
+                color: Colors.black,
+                fontSize: 15,
+                weight: FontWeight.w700,
+              ),
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
@@ -532,13 +541,7 @@ class RangerAssist extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                         color: const Color(0xC6003478)),
                     child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ),
-                        );
-                      },
+                      onTap: _launchUrl,
                       child: Image.asset('assets/images/big-info.png'),
                     )),
               ),
@@ -546,5 +549,14 @@ class RangerAssist extends StatelessWidget {
       ),
       Container(height: 65)
     ])));
+  }
+
+  final Uri _url = Uri.parse(
+      'https://www.ford.com.br/content/dam/Ford/website-assets/latam/br/nameplate/2023/ranger/pdf/fbr-ranger-2023-manual-do-propietario.pdf');
+
+  Future<void> _launchUrl() async {
+    if (!await launchUrl(_url)) {
+      throw Exception('Could not launch $_url');
+    }
   }
 }
