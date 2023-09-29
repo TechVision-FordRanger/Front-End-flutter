@@ -75,21 +75,24 @@ class WelcomeScreen extends StatelessWidget {
               child: RichText(
                 textAlign: TextAlign.center,
                 text: TextSpan(
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize:
-                        16, // Assuma que este é o tamanho de fonte padrão do seu DefaultText
-                    fontWeight:
-                        FontWeight.w400, // E este é o peso da fonte padrão
-                  ),
+                  style: DefaultTextStyle.of(context).style.copyWith(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 16.0,
+                        color: Colors.white,
+                        fontFamily: 'Epilogue',
+                        decoration:
+                            TextDecoration.none, // Remove a sublinhação aqui
+                      ),
                   children: [
                     TextSpan(
-                        text:
-                            "Ainda não faz parte do nosso programa de membros? "),
+                      text:
+                          "Ainda não faz parte do nosso programa de membros? ",
+                    ),
                     TextSpan(
                       text: 'Faça seu cadastro',
                       style: TextStyle(
                         fontWeight: FontWeight.w700,
+                        decoration: TextDecoration.none, // E aqui também
                       ),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {

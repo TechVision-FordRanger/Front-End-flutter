@@ -1,5 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/login_screen.dart';
+import 'package:ford_ranger/utils/terms_of_use.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_password.dart';
 
@@ -25,6 +27,57 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
   final OnboardingService onboardingService = OnboardingService();
 
   bool confirmTerms = false;
+  bool isPasswordVisible = false;
+  String? errorMessage;
+
+  void togglePasswordVisibility() {
+    setState(() {
+      isPasswordVisible = !isPasswordVisible;
+    });
+  }
+
+  void _showTermsOfUseDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) => TermsOfUseDialog(),
+    );
+  }
+
+  bool validateInputs() {
+    if (passwordController.text.isEmpty ||
+        confirmPasswordController.text.isEmpty) {
+      setState(() {
+        errorMessage = "Preencha todos os campos";
+      });
+      return false;
+    }
+
+    if (!confirmTerms) {
+      setState(() {
+        errorMessage = "Aceite os Termos de Uso";
+      });
+      return false;
+    }
+
+    if (passwordController.text != confirmPasswordController.text) {
+      setState(() {
+        errorMessage = "As senhas não coincidem";
+      });
+      return false;
+    }
+
+    final passwordPattern = r'^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d]{8,}$';
+    final passwordRegex = RegExp(passwordPattern);
+    if (!passwordRegex.hasMatch(passwordController.text)) {
+      setState(() {
+        errorMessage =
+            "A senha precisa ter pelo menos 8 caracteres, uma letra maiúscula, uma letra minúscula e um número.";
+      });
+      return false;
+    }
+
+    return true;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,7 +112,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                   ),
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(top: 365 - (30  + 331)),
+                  padding: EdgeInsets.only(top: 365 - (30 + 331)),
                   child: SizedBox(
                     width: 347,
                     child: Text('Senhas devem conter pelo menos 8 caracteres',
@@ -78,7 +131,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     child: CustomInputPassword(
                       controller: passwordController,
                       hintText: 'Senha',
-                      suffixIcon: const Icon(Icons.visibility_off),
+                      suffixIcon: Icon(isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onTapIcon: togglePasswordVisibility,
+                      obscureText: !isPasswordVisible,
                     ),
                   ),
                 ),
@@ -90,7 +147,11 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                     child: CustomInputPassword(
                       controller: confirmPasswordController,
                       hintText: 'Confirme sua senha',
-                      suffixIcon: const Icon(Icons.visibility_off),
+                      suffixIcon: Icon(isPasswordVisible
+                          ? Icons.visibility
+                          : Icons.visibility_off),
+                      onTapIcon: togglePasswordVisibility,
+                      obscureText: !isPasswordVisible,
                     ),
                   ),
                 ),
@@ -105,8 +166,8 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                               (states) => Colors.white),
                           overlayColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white),
-                          checkColor: MaterialStateColor.resolveWith(
-                              (states) => const Color.fromARGB(255, 13, 192, 212)),
+                          checkColor: MaterialStateColor.resolveWith((states) =>
+                              const Color.fromARGB(255, 13, 192, 212)),
                           value: confirmTerms,
                           onChanged: (bool? value) {
                             setState(() {
@@ -116,7 +177,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                         ),
                         Flexible(
                           child: RichText(
-                            text: const TextSpan(
+                            text: TextSpan(
                               style: TextStyle(
                                 fontSize: 16,
                                 fontWeight: FontWeight.w400,
@@ -127,6 +188,14 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                                 TextSpan(
                                   text: 'Termos de Uso',
                                   style: TextStyle(fontWeight: FontWeight.w900),
+                                  recognizer: TapGestureRecognizer()
+                                    ..onTap = () {
+                                      showDialog(
+                                        context: context,
+                                        builder: (BuildContext context) =>
+                                            TermsOfUseDialog(),
+                                      );
+                                    },
                                 ),
                                 TextSpan(text: ' do aplicativo'),
                               ],
@@ -155,7 +224,18 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       ),
                     ),
                   ),
-                )
+                ),
+                if (errorMessage != null)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Text(
+                      errorMessage!,
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontSize: 16,
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

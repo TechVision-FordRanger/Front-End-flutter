@@ -10,7 +10,7 @@ class BetterJob extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 85),
+            padding: const EdgeInsets.only(top: 50),
             child: DefaultText(
               text: 'Better Job',
               fontSize: 32,

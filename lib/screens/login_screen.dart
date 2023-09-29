@@ -69,7 +69,9 @@ class _LoginSreenState extends State<LoginScreen> {
                   hintText: "Senha",
                   obscureText: !_passwordVisible,
                   suffixIcon: Icon(
-                    _passwordVisible ? Icons.visibility_off : Icons.visibility,
+                    _passwordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off, // Lógica invertida aqui
                   ),
                   onTapIcon: () {
                     setState(() {

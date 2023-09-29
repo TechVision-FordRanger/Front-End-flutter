@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_pdfview: ^1.2.7
+  url_launcher: ^6.0.12
 
   http: ^1.1.0
   cupertino_icons: ^1.0.2
@@ -55,6 +57,7 @@ flutter:
     - assets/images/tools2.png
     - assets/images/Renavam.png
     - assets/images/ranger_picture.png
+    - assets/pdf/manual-ranger.pdf
 
 
 
