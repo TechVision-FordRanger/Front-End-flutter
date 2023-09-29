@@ -472,16 +472,7 @@ class RangerAssist extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    child: InkWell(
-                      onTap: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const LoginScreen(),
-                          ),
-                        );
-                      },
                       child: Image.asset('assets/images/map-two-ex.png'),
-                    ),
                   ),
                   Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
