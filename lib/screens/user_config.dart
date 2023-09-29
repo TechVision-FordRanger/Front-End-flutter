@@ -132,7 +132,7 @@ class UserConfig extends StatelessWidget {
                       child: const Text('Sim'),
                       onPressed: () {
                         Navigator.of(context).pop(); // Fecha o modal
-                        Navigator.pushNamed(context, '/logOut');
+                        Navigator.pushNamed(context, '/LoadingScreen');
                       },
                     ),
                   ],
