@@ -20,10 +20,24 @@ class RangerAssist extends StatelessWidget {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 170 - (91 + 47)),
-        child: DefaultText(
-            text: 'Cuidados com sua ranger',
-            fontSize: 20,
-            weight: FontWeight.w700),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+            DefaultText(
+              text: 'Cuidados com sua ranger',
+              fontSize: 20,
+              weight: FontWeight.w700,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+          ],
+        ),
       ),
       Padding(
         padding: const EdgeInsets.only(top: 206 - (150 + 44)),
@@ -305,7 +319,25 @@ class RangerAssist extends StatelessWidget {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 420 - (176 + 206)),
-        child: DefaultText(text: 'Suas Peças', fontSize: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+            DefaultText(
+              text: 'Suas Peças',
+              fontSize: 20,
+              weight: FontWeight
+                  .w700, // Adicione isso se quiser a fonte em negrito como no segundo
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+          ],
+        ),
       ),
       Padding(
         padding: const EdgeInsets.only(top: 206 - (150 + 44)),
@@ -410,9 +442,22 @@ class RangerAssist extends StatelessWidget {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 40),
-        child: DefaultText(
-          text: 'Postos  de  gasolina próximos',
-          fontSize: 20,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+            DefaultText(
+              text: 'Postos de gasolina próximos',
+              fontSize: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+          ],
         ),
       ),
       Padding(
@@ -510,7 +555,23 @@ class RangerAssist extends StatelessWidget {
       ),
       Padding(
         padding: const EdgeInsets.only(top: 50),
-        child: DefaultText(text: 'Manual do Veículo', fontSize: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+            DefaultText(
+              text: 'Manual do Veículo',
+              fontSize: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(left: 10),
+              child: Image.asset('assets/images/dots.png'),
+            ),
+          ],
+        ),
       ),
       Padding(
         padding: const EdgeInsets.only(top: 17),
