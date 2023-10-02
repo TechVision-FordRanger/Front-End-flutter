@@ -4,19 +4,19 @@ class CustomInputPassword extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
   final TextInputType keyboardType;
-  final Icon? suffixIcon; // Usado para o ícone no final
+  final Widget? suffixIcon; // Alterado de Icon para Widget
   final bool obscureText;
-  final Function()? onTapIcon; // Função adicional para o ícone
+  final Function()? onTapIcon;
 
   const CustomInputPassword({
-    super.key,
+    Key? key,
     required this.controller,
     required this.hintText,
     this.keyboardType = TextInputType.text,
-    this.suffixIcon, // Use o suffixIcon em vez de prefixIcon
+    this.suffixIcon,
     this.obscureText = false,
     this.onTapIcon,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +26,14 @@ class CustomInputPassword extends StatelessWidget {
       decoration: InputDecoration(
         hintText: hintText,
         border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(
-              10.0), // Ajuste este valor conforme necessário
+          borderRadius: BorderRadius.circular(10.0),
         ),
         suffixIcon: suffixIcon != null
             ? IconButton(
                 icon: suffixIcon!,
                 color: Colors.white,
                 disabledColor: Colors.white,
-                onPressed: onTapIcon, // Quando o ícone é pressionado
+                onPressed: onTapIcon,
               )
             : null,
         filled: true,

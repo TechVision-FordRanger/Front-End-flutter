@@ -10,7 +10,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_pdfview: ^1.2.7
+  url_launcher: ^6.0.12
 
+  http: ^1.1.0
   cupertino_icons: ^1.0.2
   ionicons: ^0.2.2
   intl: ^0.18.1
@@ -39,7 +42,7 @@ flutter:
     - assets/images/bg-home.png
     - assets/images/ranger-sem-fundo.png
     - assets/images/police.png
-    - assets/images/radio-icon.png
+    - assets/images/icon-radio.png
     - assets/images/alert.png
     - assets/images/cargo-container.png
     - assets/images/info-drone.png
@@ -54,6 +57,7 @@ flutter:
     - assets/images/tools2.png
     - assets/images/Renavam.png
     - assets/images/ranger_picture.png
+    - assets/pdf/manual-ranger.pdf
 
 
 

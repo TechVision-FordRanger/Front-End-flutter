@@ -10,7 +10,7 @@ class BetterJob extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 85),
+            padding: const EdgeInsets.only(top: 50),
             child: DefaultText(
               text: 'Better Job',
               fontSize: 32,
@@ -101,10 +101,10 @@ class BetterJob extends StatelessWidget {
                           child: Column(
                             children: [
                               Image.asset(
-                                'assets/images/radio-icon.png',
+                                'assets/images/icon-radio.png',
                               ),
                               DefaultText(
-                                  text: 'Sinal',
+                                  text: 'Sinal de Radio',
                                   color: Color(0xFF003478),
                                   align: TextAlign.center,
                                   fontSize: 15,

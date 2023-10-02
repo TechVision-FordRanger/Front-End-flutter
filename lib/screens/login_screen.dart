@@ -1,7 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/models/auth_dto.dart';
+import 'package:ford_ranger/models/default_response_dto.dart';
 import 'package:ford_ranger/screens/home_page.dart';
 import 'package:ford_ranger/screens/registration.dart';
+import 'package:ford_ranger/services/auth_service.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/custom_input_password.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';
@@ -66,7 +69,9 @@ class _LoginSreenState extends State<LoginScreen> {
                   hintText: "Senha",
                   obscureText: !_passwordVisible,
                   suffixIcon: Icon(
-                    _passwordVisible ? Icons.visibility_off : Icons.visibility,
+                    _passwordVisible
+                        ? Icons.visibility
+                        : Icons.visibility_off, // Lógica invertida aqui
                   ),
                   onTapIcon: () {
                     setState(() {
@@ -88,25 +93,7 @@ class _LoginSreenState extends State<LoginScreen> {
                       // Lógica para processar o login bem-sucedido
                       Navigator.pushNamed(context, HomePage.routeName);
                     } else {
-                      // Exibir uma mensagem de erro
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: const Text("Erro de Autenticação"),
-                            content: const Text(
-                                "Email ou senha inválidos. Tente novamente."),
-                            actions: [
-                              TextButton(
-                                onPressed: () {
-                                  Navigator.of(context).pop();
-                                },
-                                child: const Text("OK"),
-                              ),
-                            ],
-                          );
-                        },
-                      );
+                      logIn();
                     }
                   },
                   style: ButtonStyle(
@@ -169,5 +156,37 @@ class _LoginSreenState extends State<LoginScreen> {
         ),
       ),
     );
+  }
+
+  void logIn() async {
+    AuthService authService = AuthService();
+    String email = _loginController.text;
+    String password = _passwordController.text;
+
+    DefaultResponseDto<dynamic> res = await authService
+        .logIn(AuthDto(email: email, password: password).toJson());
+
+    if (res.success) {
+      Navigator.pushNamed(context, HomePage.routeName);
+    } else {
+      // Exibir uma mensagem de erro
+      showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: const Text("Erro de Autenticação"),
+            content: const Text("Email ou senha inválidos. Tente novamente."),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: const Text("OK"),
+              ),
+            ],
+          );
+        },
+      );
+    }
   }
 }
