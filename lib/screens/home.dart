@@ -22,7 +22,7 @@ class Home extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 240 - (82 + 130)),
-            child: Text('petter Parker',
+            child: Text('Petter Parker',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
