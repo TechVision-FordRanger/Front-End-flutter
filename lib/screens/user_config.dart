@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/utils/terms_of_use.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 
 class UserConfig extends StatelessWidget {
+
+  final UserDto user;
+  UserConfig({required this.user});
+
   @override
   Widget build(BuildContext context) {
     return CustomBackgroundColor(
@@ -32,7 +37,7 @@ class UserConfig extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.all(2.0),
                     child: DefaultText(
-                        text: 'Petter Parker',
+                        text: user.firstName,
                         align: TextAlign.end,
                         fontSize: 12,
                         weight: FontWeight.w700),

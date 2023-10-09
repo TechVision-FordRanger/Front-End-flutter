@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/models/auth_dto.dart';
 import 'package:ford_ranger/models/default_response_dto.dart';
+import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/screens/home_page.dart';
 import 'package:ford_ranger/screens/registration.dart';
 import 'package:ford_ranger/services/auth_service.dart';
@@ -90,8 +91,16 @@ class _LoginSreenState extends State<LoginScreen> {
                     String password = _passwordController.text;
 
                     if (email == "ford@ford.com.br" && password == "fordford") {
-                      // Lógica para processar o login bem-sucedido
-                      Navigator.pushNamed(context, HomePage.routeName);
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) {
+                          return HomePage(
+                              user: UserDto(
+                                  firstName: 'João Pedro',
+                                  email: email,
+                                  password: password,
+                                  birthDate: '10/09/1999'));
+                        },
+                      ));
                     } else {
                       logIn();
                     }
@@ -167,9 +176,14 @@ class _LoginSreenState extends State<LoginScreen> {
         .logIn(AuthDto(email: email, password: password).toJson());
 
     if (res.success) {
-      Navigator.pushNamed(context, HomePage.routeName);
+      Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) {
+          return HomePage(user: res.data);
+        },
+      ));
     } else {
       // Exibir uma mensagem de erro
+      // ignore: use_build_context_synchronously
       showDialog(
         context: context,
         builder: (BuildContext context) {

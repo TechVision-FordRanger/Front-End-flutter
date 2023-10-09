@@ -1,4 +1,7 @@
+import 'dart:js';
+
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/screens/home.dart';
 import 'package:ford_ranger/screens/ranger_assist.dart';
 import 'package:ford_ranger/screens/user_config.dart';
@@ -7,7 +10,14 @@ import 'package:ionicons/ionicons.dart';
 import 'better_job.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  HomePage({super.key, required this.user});
+
+  final UserDto user;
+
+// // Retrieving user data sent via navigator
+//   final UserDto userData =
+//       ModalRoute.of(context)!.settings.arguments as UserDto;
+
   static String routeName = '/home';
 
   @override
@@ -27,7 +37,12 @@ class _HomePageState extends State<HomePage> {
   Widget getBody() {
     return IndexedStack(
       index: pageIndex,
-      children: [Home(), BetterJob(), RangerAssist(), UserConfig()],
+      children: [
+        Home(user: widget.user),
+        BetterJob(),
+        RangerAssist(),
+        UserConfig(user: widget.user,)
+      ],
     );
   }
 
@@ -43,7 +58,8 @@ class _HomePageState extends State<HomePage> {
       return BottomNavigationBarItem(
         icon: CircleAvatar(
           radius: 35,
-          backgroundColor: pageIndex == index ? Color(0xFF003478) : Color(0xFF343434),
+          backgroundColor:
+              pageIndex == index ? Color(0xFF003478) : Color(0xFF343434),
           child: Icon(icons[index], color: Colors.white, size: 30),
         ),
         label: '',

@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/widgets/custom_background_color.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
 
-class Home extends StatelessWidget {
-  const Home({super.key});
+class Home extends StatefulWidget {
+  const Home({super.key, required this.user});
 
+  final UserDto user;
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,18 +30,18 @@ class Home extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 240 - (82 + 130)),
-            child: Text('Petter Parker',
+            child: Text(widget.user.firstName,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.w700)),
           ),
-          const Padding(
+          Padding(
             padding: EdgeInsets.only(top: 283 - (38 + 240)),
             child: Opacity(
               opacity: 0.6,
               child: Text(
-                'petterparker@ford.com',
+                widget.user.email,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
@@ -177,7 +185,9 @@ class Home extends StatelessWidget {
                               width: 95,
                               height: 19,
                               decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 122, 14, 6),
+                                color: widget.user.rangerColor == 'red'
+                                    ? Color.fromARGB(255, 122, 14, 6)
+                                    : Color.fromARGB(255, 7, 23, 240),
                                 border: Border.all(
                                   color: Colors.white,
                                   width:
@@ -198,4 +208,6 @@ class Home extends StatelessWidget {
       ))),
     );
   }
+
+  findUserData() async {}
 }
