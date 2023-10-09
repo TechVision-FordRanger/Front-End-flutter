@@ -141,9 +141,13 @@ class _HomeState extends State<Home> {
                   Padding(
                     padding: const EdgeInsets.only(top: 542 - (501 + 29)),
                     child: Container(
-                        child: Image.asset(
-                      'assets/images/ranger-sem-fundo.png',
-                    )),
+                        child: widget.user.rangerColor != 'red'
+                            ? Image.asset(
+                                'assets/images/blue-ford-no-bg.png',
+                              )
+                            : Image.asset(
+                                'assets/images/ranger-sem-fundo.png',
+                              )),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 10),

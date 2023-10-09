@@ -339,14 +339,25 @@ class _RegistrationState extends State<Registration> {
 
     DefaultResponseDto res = await onboardingService.createUser(jsonUser);
 
-    if (res.success) {
-      Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-        return Renavam(res.data);
-      },));
-    } else {
+    try {
+      if (res.success) {
+        Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) {
+            return Renavam(res.data);
+          },
+        ));
+      } else {
+        return ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(res.message),
+            backgroundColor: Colors.red,
+          ),
+        );
+      }
+    } catch (err) {
       return ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: Text(res.message),
+          content: Text('Erro ao criar usuário'),
           backgroundColor: Colors.red,
         ),
       );
