@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class BetterJob extends StatelessWidget {
   @override
@@ -117,7 +118,7 @@ class BetterJob extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(top: 392 - (264 + 85)),
-            child:  Row(
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Padding(
@@ -139,8 +140,11 @@ class BetterJob extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 450 - (392 + 44)),
             child: Container(
-                child: Image.asset(
-              'assets/images/map.png',
+                child: InkWell(
+              onTap: _launchUrlMaps,
+              child: Image.asset(
+                'assets/images/map.png',
+              ),
             )),
           ),
           Padding(
@@ -326,5 +330,13 @@ class BetterJob extends StatelessWidget {
         ],
       ),
     ));
+  }
+
+  final Uri _urlMaps = Uri.parse('https://www.google.com/maps');
+
+  Future<void> _launchUrlMaps() async {
+    if (!await launchUrl(_urlMaps)) {
+      throw Exception('Could not launch $_urlMaps');
+    }
   }
 }
