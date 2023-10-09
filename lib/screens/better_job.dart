@@ -264,7 +264,7 @@ class BetterJob extends StatelessWidget {
                                             width: 50,
                                             color: Colors.white,
                                             child: DefaultText(
-                                              text: '18',
+                                              text: '0',
                                               fontSize: 10,
                                               align: TextAlign.center,
                                               color: Colors.black,
@@ -288,7 +288,7 @@ class BetterJob extends StatelessWidget {
                                             width: 50,
                                             color: Colors.white,
                                             child: DefaultText(
-                                              text: '5',
+                                              text: '0',
                                               fontSize: 10,
                                               align: TextAlign.center,
                                               color: Colors.black,
@@ -312,7 +312,7 @@ class BetterJob extends StatelessWidget {
                                             width: 50,
                                             color: Colors.white,
                                             child: DefaultText(
-                                              text: '204 km',
+                                              text: '0 km',
                                               fontSize: 10,
                                               align: TextAlign.center,
                                               color: Colors.black,

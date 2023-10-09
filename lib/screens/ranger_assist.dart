@@ -101,7 +101,7 @@ class RangerAssist extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: 'há 4 dias',
+                                  text: 'há 0 dias',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
@@ -133,7 +133,7 @@ class RangerAssist extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '40 Litros',
+                                  text: '0 Litros',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
@@ -165,7 +165,7 @@ class RangerAssist extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '120 Km',
+                                  text: '0 Km',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
@@ -237,7 +237,7 @@ class RangerAssist extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: 'há 24 dias',
+                                  text: 'há 0 dias',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
@@ -269,7 +269,7 @@ class RangerAssist extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '40km',
+                                  text: '0km',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,
@@ -301,7 +301,7 @@ class RangerAssist extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                  text: '9000kms',
+                                  text: '0kms',
                                   style: TextStyle(
                                     fontSize: 10,
                                     fontWeight: FontWeight.w400,

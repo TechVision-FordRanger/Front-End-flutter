@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           DefaultText(
-                            text: '1000',
+                            text: '0',
                             fontSize: 30,
                             weight: FontWeight.w700,
                             color: Colors.white,
@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           DefaultText(
-                            text: '11',
+                            text: '0',
                             fontSize: 30,
                             weight: FontWeight.w700,
                             color: Colors.white,
