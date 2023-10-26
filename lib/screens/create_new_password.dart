@@ -215,9 +215,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
                       style: ButtonStyle(
                           backgroundColor: MaterialStateColor.resolveWith(
                               (states) => Colors.white)),
-                      onPressed: () => {
-                        savePassword()
-                      },
+                      onPressed: () => {savePassword()},
                       child: const Text(
                         'Torne-se um Membro Ranger',
                         style: TextStyle(color: Colors.black, fontSize: 16),
@@ -244,7 +242,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
     );
   }
 
-   dynamic savePassword() async {
+  dynamic savePassword() async {
     widget.user.password = passwordController.text;
     dynamic id = widget.user.id;
     Map<String, String> passwordObject = {'password': passwordController.text};

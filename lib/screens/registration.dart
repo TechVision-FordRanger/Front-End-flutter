@@ -1,8 +1,5 @@
-import 'dart:js_interop';
-
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/models/default_response_dto.dart';
-import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/screens/renavam.dart';
 import 'package:ford_ranger/services/onboarding_service.dart';
 import 'package:ford_ranger/widgets/custom_input_registration.dart';

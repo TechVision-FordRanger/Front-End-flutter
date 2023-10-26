@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ford_ranger/screens/loading_screen.dart';
 import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/screens/welcome_screen.dart';
-import 'package:ford_ranger/screens/create_new_password.dart';
-import 'package:ford_ranger/screens/home_page.dart';
 import 'package:ford_ranger/screens/registration.dart';
-import 'package:ford_ranger/screens/renavam.dart';
 
 void main() {
   runApp(const MyApp());

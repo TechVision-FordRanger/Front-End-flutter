@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/models/user_dto.dart';
 import 'package:ford_ranger/screens/home.dart';
@@ -41,7 +39,9 @@ class _HomePageState extends State<HomePage> {
         Home(user: widget.user),
         BetterJob(),
         RangerAssist(),
-        UserConfig(user: widget.user,)
+        UserConfig(
+          user: widget.user,
+        )
       ],
     );
   }

@@ -1,10 +1,11 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:ford_ranger/screens/login_screen.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+const LatLng currentLocation = LatLng(-23.573917788476074, -46.62320597160591);
 
 class RangerAssist extends StatelessWidget {
   @override
@@ -470,10 +471,21 @@ class RangerAssist extends StatelessWidget {
             child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
-                    child: InkWell(
-                        onTap: _launchUrlMaps,
-                        child: Image.asset('assets/images/map-two-ex.png')),
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 16),
+                      child: Container(
+                        height: 300,
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: const GoogleMap(
+                            initialCameraPosition: CameraPosition(
+                                target: currentLocation, zoom: 15),
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                   Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -610,14 +622,6 @@ class RangerAssist extends StatelessWidget {
   Future<void> _launchUrlPdf() async {
     if (!await launchUrl(_urlPdf)) {
       throw Exception('Could not launch $_urlPdf');
-    }
-  }
-
-  final Uri _urlMaps = Uri.parse('https://www.google.com/maps');
-
-  Future<void> _launchUrlMaps() async {
-    if (!await launchUrl(_urlMaps)) {
-      throw Exception('Could not launch $_urlMaps');
     }
   }
 }
