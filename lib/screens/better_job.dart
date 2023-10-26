@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ford_ranger/widgets/default_text.dart';
 import 'package:ford_ranger/widgets/home_background.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
+const LatLng currentLocation = LatLng(-23.573917788476074, -46.62320597160591);
 
 class BetterJob extends StatelessWidget {
   @override
@@ -138,14 +140,17 @@ class BetterJob extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 450 - (392 + 44)),
+            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: Container(
-                child: InkWell(
-              onTap: _launchUrlMaps,
-              child: Image.asset(
-                'assets/images/map.png',
+              height: 300,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(30),
+                child: const GoogleMap(
+                  initialCameraPosition:
+                      CameraPosition(target: currentLocation, zoom: 15),
+                ),
               ),
-            )),
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 740 - (277 + 392)),
@@ -330,13 +335,5 @@ class BetterJob extends StatelessWidget {
         ],
       ),
     ));
-  }
-
-  final Uri _urlMaps = Uri.parse('https://www.google.com/maps');
-
-  Future<void> _launchUrlMaps() async {
-    if (!await launchUrl(_urlMaps)) {
-      throw Exception('Could not launch $_urlMaps');
-    }
   }
 }
